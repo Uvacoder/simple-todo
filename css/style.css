@@ -1,0 +1,191 @@
+* {
+  font-family: 'Playfair Display', serif;
+  outline: none;
+}
+
+body  {
+  background: linear-gradient(to right,rgba(44, 255, 20, 0.5),rgba(0, 132, 233, 0.5));
+  padding-right: 15px;
+}
+/*Header title 'TO DO'*/
+#header {
+  width: 100%;
+  height: 75px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  text-align: center;
+  background: linear-gradient(to right,#3fffb6,#15c7ff);
+  color: #fff;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  box-shadow: 2px 2px 50px rgba(0,0,0,0.2);
+  z-index: 5;
+}
+/*container for all tasks*/
+#tasks {
+  padding-top: 90px;
+}
+/*container for task input and add button*/
+#add-task {
+  height: 50px;
+  margin-bottom: 45px;
+  padding: 0 23px;
+}
+/*task input*/
+#todoInput {
+  min-height: 54px;
+  min-width:`100%;
+  border-top-right-radius: 27px;
+  border-bottom-right-radius: 27px;
+  border-top-left-radius: 27px;
+  border-bottom-left-radius: 27px;
+  font-size: 16px;
+  display: inline-block;
+  float: left;
+  border: none;
+  padding: 0 30px 0 0;
+  text-indent: 10px;
+}
+/*add button*/
+#add {
+  position: absolute;
+  float: right;
+  background-color: #fff;
+  z-index: 2;
+  right: 23px;
+  border: 1px solid #000;
+}
+/*add button on hover*/
+#add:hover {
+  background-color: #000;
+  border: 1px solid #fff;
+}
+/*font awesome icons on hover*/
+#add:hover i {
+  color: #fff;
+}
+/*props shared by all buttons*/
+button {
+  border-radius: 100%;
+  width: 54px;
+  height: 54px;
+  border: 0;
+  clear: both;
+  position: absolute;
+  transition-duration: .3s;
+}
+button:hover {
+  cursor: pointer;
+}
+/*complete buttons*/
+.complete {
+  left: 42px;
+  height: 54px;
+  width: 54px;
+  background-color: #fff;
+  border: 1px solid #00fce9;
+}
+/*complete buttons on hover*/
+.complete:hover {
+  background-color: #00fce9;
+  border: 1px solid #fff;
+}
+/*font awesome icons on hover*/
+.complete i {
+  color: #00fce9;
+}
+/*completed buttons same as complete buttons/duplicated for use in js*/
+.completed {
+  background-color: #00fce9;
+  left: 42px;
+  height: 54px;
+  width: 54px;
+}
+/*remove buttons*/
+.remove {
+  right: 23px;
+  height: 54px;
+  width: 54px;
+  background-color: #fff;
+  border: 1px solid #e01b1b;
+}
+/*remove buttons on hover*/
+.remove:hover {
+  background-color: #e01b1b;
+  border: 1px solid #fff;
+}
+/*font awesome icons on hover*/
+.remove i {
+  color: #e01b1b;
+}
+/*font awesome icons*/
+.remove:hover i, .complete:hover i {
+  color: #fff;
+  transition-duration: .3s;
+}
+
+/*all list items*/
+li {
+  width: 100%;
+  min-height: 54px;
+  border-radius: 27px;
+  box-shadow: 1px 1px 50px rgba(139, 139, 139, 0.5);
+  margin-bottom: 10px;
+  text-indent: 65px;
+  list-style: none;
+  background-color: #fff;
+}
+/*all task inputs put inside p element*/
+ul li p {
+  float: left;
+  color: #00fce9;
+  font-size: 17px;
+  text-transform: capitalize;
+  font-weight: 400;
+}
+/*list of done tasks*/
+.done-tasks {
+  background-color: #00fce9;
+  width: 100%; !important;
+  margin-bottom: 20px;
+}
+/*checkmark on done tasks*/
+.done-tasks button {
+  background: transparent;
+}
+.done-tasks button i {
+  color: #fff;
+}
+/*font color for done tasks*/
+#donelist p {
+  color: #fff;
+}
+/*horizontal rule dividing done tasks and to do tasks */
+hr {
+  width: 75%;
+  position: relative;
+  left: 23px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+/*done task remover button container*/
+.remove-done {
+  position: fixed;
+  bottom: 85px;
+  right: 85px;
+}
+.remove-done i {
+  color: #fff;
+}
+/*done task remover button*/
+.remove-done button {
+  box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.2);
+  background-color: #e01b1b;
+  transition-duration: 0.5s;
+}
+/*done task remover button on hover*/
+.remove-done button:hover {
+  transform: scale(1.15,1.15);
+}
