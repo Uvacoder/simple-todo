@@ -28,20 +28,17 @@ body  {
 }
 /*container for task input and add button*/
 #add-task {
-  height: 50px;
+  height: 60px;
   margin-bottom: 45px;
   padding: 0 23px;
 }
 /*task input*/
 #todoInput {
-  min-height: 54px;
-  min-width:`100%;
-  border-top-right-radius: 27px;
-  border-bottom-right-radius: 27px;
-  border-top-left-radius: 27px;
-  border-bottom-left-radius: 27px;
+  height: 54px;
+  width:`100% !important;
+  border-radius: 27px;
   font-size: 16px;
-  display: inline-block;
+  display: inline;
   float: left;
   border: none;
   padding: 0 30px 0 0;
@@ -53,8 +50,9 @@ body  {
   float: right;
   background-color: #fff;
   z-index: 2;
-  right: 23px;
+  right: 25px;
   border: 1px solid #000;
+  display: inline;
 }
 /*add button on hover*/
 #add:hover {
