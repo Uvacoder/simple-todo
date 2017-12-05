@@ -1,55 +1,92 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <title>Todo list</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Kumar+One|Playfair+Display" rel="stylesheet">
-    <script src="https://use.fontawesome.com/512a791d9f.js"></script>
+    <head>
+      <meta charset="utf-8">
+      <title>Dolist</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <!-- custom stylesheet -->
+      <link rel="stylesheet" href="css/style.css">
+      <!-- Favicon -->
+      <link rel="shortcut icon" href="media/favicon.ico" type="image/x-icon">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <!-- Google Fonts -->
+      <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+      <!-- Material Icons -->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!-- jQuery -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <!-- Bootstrap JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    </head>
   </head>
   <body>
-    <div class="container-fluid">
-      <!-- app title: todoInputo -->
-      <div class="row" id='header'>
-        <h1>ToDo</h1>
+    <!-- App title: Dolist -->
+    <div id='header'>
+      <div class="center-block" id="logo">
+        <img src="media/logo.svg" class="center-block" alt="Logo">
+        <h4 class="text-center">Dolist</h4>
+      </div>
+      <button id="options-btn" class="pull-right">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <div id="option-holder" class="active">
+        <button id="sync">
+          <i class="material-icons">sync</i>
+        </button>
+        <button id="del-all" title="Remove Done Tasks">
+          <i class="material-icons">delete_sweep</i>
+        </button>
       </div>
     </div>
-    <!-- container of all tasks -->
-    <div class="container" id="tasks">
-      <div class="row">
-        <!-- task input container-->
-        <div id="add-task">
-          <!-- <li class='tasks'> -->
-            <!-- user task input -->
-            <input type="text" placeholder="Enter a Task" id='todoInput'>
-            <!-- add task to todo list button -->
-            <button type="button" id='add' title='Add Task'><i class="fa fa-plus fa-2x" aria-hidden="true"></i></button>
-          <!-- </li> -->
-        </div>
-        <!-- list of tasks to be completed -->
-        <ul id='todolist'>
-          <!-- <li>
-            <div class="buttons">
-              <button type="button" class="complete"><i class="fa fa-check fa-2x" aria-hidden="true"></i></button>
-              <button type="button" class="remove"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></button>
-            </div>
-            <p>to be done</p>
-          </li> -->
-        </ul>
-        <!-- list of completed tasks -->
-        <hr>
-        <ul id='donelist'>
-          <!-- <li class='done-tasks'>
-            <button type="button" class="completed"><i class="fa fa-check fa-2x" aria-hidden="true"></i></button>
-            <p>done task</p>
-          </li> -->
-        </ul>
-      </div>
-      <div class="remove-done" id='delAll'>
-        <button id='remove-done' type="button" title='Delete Done Tasks'><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></button>
+    <!-- Input -->
+    <div id="input-holder" class="input-group">
+      <input id="input" type="text" class="form-control" placeholder="Enter Task">
+      <div class="input-group-btn">
+        <button id="add-task" class="text-center">
+          <i class="material-icons">add</i>
+        </button>
       </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <hr id="input-break">
+    <!-- To Do Tasks -->
+    <div id="todo" class="center-block">
+      <p id="notif" class="text-center">You have no tasks to complete.</p>
+      <!-- <li class="task">
+        <span class="check-task pull-left"></span>
+        <span class="task-name">Task One</span>
+        <span class="delete-task pull-right"><i class="material-icons">delete</i></span>
+        <span class="edit-task pull-right"><i class="material-icons">edit</i></span>
+      </li> -->
+    </div>
+    <div id="task-break" class="center-block">
+      <hr>
+      <div id="task-break-circle" class="text-center center-block">
+        <i class="material-icons">done</i>
+      </div>
+    </div>
+    <!-- Done Tasks -->
+    <div id="done" class="center-block">
+      <!-- <p id="no-done-notif" class="notif text-center">
+        You have no completed tasks.
+      </p> -->
+      <!-- <li class="done-task">
+        <span class="checked-task pull-left"><i class="material-icons">done</i></span>
+        <span class="task-name">Task One</span>
+        <span class="delete-task pull-right"><i class="material-icons">delete</i></span>
+      </li> -->
+    </div>
+    <!-- Edit Popup -->
+    <div id="edit-bkg"></div>
+    <div id="editPopup">
+      <button class="closePopup text-center">
+        <i class="material-icons">close</i>
+      </button>
+      <input type="text" id="edit-input">
+      <button id="save">Save</button>
+    </div>
     <script src='js/main.js'></script>
   </body>
 </html>

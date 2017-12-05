@@ -1,189 +1,316 @@
 * {
-  font-family: 'Playfair Display', serif;
-  outline: none;
-}
+  border-radius: 0px !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  -ms-appearance: none !important;
+  -o-appearance: none !important;
+  appearance: none !important;
+  outline: none !important;
+  transition: 0.3s;
+  -o-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -webkit-transition: 0.3s;
+  font-family: 'Tw Cen MT', 'Raleway', sans-serif; }
 
-body  {
-  background: linear-gradient(to right,rgba(44, 255, 20, 0.5),rgba(0, 132, 233, 0.5));
-  padding-right: 15px;
-}
-/*Header title 'TO DO'*/
+a {
+  text-decoration: none !important; }
+  a:hover {
+    text-decoration: none !important; }
+
+li {
+  list-style-type: none; }
+
 #header {
   width: 100%;
-  height: 75px;
+  height: 60px;
+  background-color: #fff;
   position: fixed;
   top: 0;
   left: 0;
-  text-align: center;
-  background: linear-gradient(to right,#3fffb6,#15c7ff);
-  color: #fff;
-  border-bottom-left-radius: 50px;
-  border-bottom-right-radius: 50px;
-  box-shadow: 2px 2px 50px rgba(0,0,0,0.2);
-  z-index: 5;
-}
-/*container for all tasks*/
-#tasks {
-  padding-top: 90px;
-}
-/*container for task input and add button*/
-#add-task {
-  height: 60px;
-  margin-bottom: 45px;
-  padding: 0 23px;
-}
-/*task input*/
-#todoInput {
-  height: 54px;
-  width:`100% !important;
-  border-radius: 27px;
-  font-size: 16px;
-  display: inline;
-  float: left;
-  border: none;
-  padding: 0 30px 0 0;
-  text-indent: 10px;
-}
-/*add button*/
-#add {
-  position: absolute;
-  float: right;
-  background-color: #fff;
-  z-index: 2;
-  right: 25px;
-  border: 1px solid #000;
-  display: inline;
-}
-/*add button on hover*/
-#add:hover {
-  background-color: #000;
-  border: 1px solid #fff;
-}
-/*font awesome icons on hover*/
-#add:hover i {
-  color: #fff;
-}
-/*props shared by all buttons*/
-button {
-  border-radius: 100%;
-  width: 54px;
-  height: 54px;
-  border: 0;
-  clear: both;
-  position: absolute;
-  transition-duration: .3s;
-}
-button:hover {
-  cursor: pointer;
-}
-/*complete buttons*/
-.complete {
-  left: 42px;
-  height: 54px;
-  width: 54px;
-  background-color: #fff;
-  border: 1px solid #00fce9;
-}
-/*complete buttons on hover*/
-.complete:hover {
-  background-color: #00fce9;
-  border: 1px solid #fff;
-}
-/*font awesome icons on hover*/
-.complete i {
-  color: #00fce9;
-}
-/*completed buttons same as complete buttons/duplicated for use in js*/
-.completed {
-  background-color: #00fce9;
-  left: 42px;
-  height: 54px;
-  width: 54px;
-}
-/*remove buttons*/
-.remove {
-  right: 23px;
-  height: 54px;
-  width: 54px;
-  background-color: #fff;
-  border: 1px solid #e01b1b;
-}
-/*remove buttons on hover*/
-.remove:hover {
-  background-color: #e01b1b;
-  border: 1px solid #fff;
-}
-/*font awesome icons on hover*/
-.remove i {
-  color: #e01b1b;
-}
-/*font awesome icons*/
-.remove:hover i, .complete:hover i {
-  color: #fff;
-  transition-duration: .3s;
-}
+  color: #000;
+  box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.15);
+  z-index: 10; }
+  #header #logo {
+    width: 50px;
+    height: 60px;
+    padding-top: 5px; }
+    #header #logo img {
+      width: 25px;
+      height: 25px; }
+    #header #logo h4 {
+      position: relative;
+      top: -5px; }
+  #header #options-btn {
+    width: 40px;
+    height: 50px;
+    background-color: #fff;
+    position: fixed;
+    top: 5px;
+    right: 10px;
+    border: none; }
+  #header #option-holder {
+    width: 100px;
+    height: 50px;
+    box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.15);
+    -o-box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.15);
+    -ms-box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.15);
+    position: absolute;
+    top: 50px;
+    right: 15px;
+    background: #fff;
+    display: none;
+    grid-template-columns: 50px 50px;
+    grid-template-rows: 50px; }
+    #header #option-holder::before {
+      content: "";
+      position: absolute;
+      right: 5px;
+      bottom: 100%;
+      border-width: 10px;
+      border-style: solid;
+      border-color: transparent transparent #fff transparent; }
+    #header #option-holder button {
+      z-index: 100;
+      background: transparent;
+      border: none;
+      box-sizing: border-box; }
+      #header #option-holder button:first-of-type i {
+        vertical-align: middle;
+        color: #2ecc71; }
+      #header #option-holder button:nth-of-type(2) {
+        border-left: 1px dotted #ccc; }
+        #header #option-holder button:nth-of-type(2) i {
+          vertical-align: middle;
+          color: #e74c3c; }
 
-/*all list items*/
-li {
-  width: 100%;
-  min-height: 54px;
-  border-radius: 27px;
-  box-shadow: 1px 1px 50px rgba(139, 139, 139, 0.5);
-  margin-bottom: 10px;
-  text-indent: 65px;
-  list-style: none;
-  background-color: #fff;
-}
-/*all task inputs put inside p element*/
-ul li p {
-  float: left;
-  color: #00fce9;
-  font-size: 17px;
-  text-transform: capitalize;
-  font-weight: 400;
-}
-/*list of done tasks*/
-.done-tasks {
-  background-color: #00fce9;
-  width: 100%; !important;
-  margin-bottom: 20px;
-}
-/*checkmark on done tasks*/
-.done-tasks button {
-  background: transparent;
-}
-.done-tasks button i {
-  color: #fff;
-}
-/*font color for done tasks*/
-#donelist p {
-  color: #fff;
-}
-/*horizontal rule dividing done tasks and to do tasks */
-hr {
-  width: 75%;
-  position: relative;
-  left: 23px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+#input-holder {
+  width: 70%;
+  height: 40px;
+  box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.15);
+  -o-box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.15);
+  -ms-box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.15);
+  margin-left: -35%;
+  position: absolute;
+  left: 50%;
+  top: 75px;
+  border: none; }
+  #input-holder #input {
+    height: 100%;
+    border: none;
+    font-size: 18px; }
+    #input-holder #input:focus {
+      box-shadow: none;
+      -o-box-shadow: none;
+      -ms-box-shadow: none;
+      -moz-box-shadow: none;
+      -webkit-box-shadow: none; }
+  #input-holder #add-task {
+    background-color: #2ecc71;
+    width: 40px;
+    height: 40px;
+    border: none;
+    color: #fff; }
+    #input-holder #add-task i {
+      vertical-align: middle; }
+
+#input-break {
+  width: 200px;
+  margin-top: 150px; }
+
+#todo {
+  width: 80%;
+  height: auto;
+  margin-top: 25px;
+  max-width: 625px; }
+  #todo #notif {
+    font-size: 18px;
+    color: #858585; }
+  #todo .task {
+    width: 100%;
+    height: 40px;
+    box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.15);
+    -o-box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.15);
+    -ms-box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.15);
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    border-left: 5px solid #e74c3c; }
+    #todo .task .check-task {
+      width: 20px;
+      height: 20px;
+      background-color: #ccc;
+      cursor: pointer;
+      text-align: center;
+      margin-right: 15px; }
+      #todo .task .check-task i {
+        font-size: 18px;
+        color: #ccc; }
+    #todo .task .task-name {
+      font-weight: bold;
+      font-size: 18px;
+      line-height: normal;
+      vertical-align: middle; }
+    #todo .task .delete-task, #todo .task .edit-task {
+      height: 20px;
+      cursor: pointer;
+      padding: 0 5px;
+      vertical-align: middle; }
+      #todo .task .delete-task i, #todo .task .edit-task i {
+        color: #ccc;
+        margin-top: -3px; }
+    #todo .task .delete-task {
+      border-left: 1px dotted #ccc; }
+      #todo .task .delete-task:hover i {
+        color: #e74c3c; }
+    #todo .task .edit-task:hover i {
+      color: #e7a514; }
+
+.notif {
+  display: block; }
+
+#task-break {
   margin-top: 25px;
   margin-bottom: 25px;
-}
-/*done task remover button container*/
-.remove-done {
+  display: none; }
+  #task-break hr {
+    width: 200px;
+    margin-bottom: 0;
+    border: 0.5px solid #2ecc71; }
+  #task-break #task-break-circle {
+    width: 40px;
+    height: 20px;
+    background-color: #2ecc71;
+    border-radius: 10px !important;
+    position: relative;
+    top: -10px; }
+    #task-break #task-break-circle i {
+      font-size: 15px;
+      color: #fff;
+      vertical-align: middle;
+      margin-top: -1px; }
+
+#done {
+  width: 80%;
+  height: auto;
+  max-width: 625px; }
+  #done .done-task {
+    width: 100%;
+    height: 40px;
+    box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.15);
+    -o-box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.15);
+    -ms-box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.15);
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    border-left: 5px solid #2ecc71; }
+    #done .done-task .checked-task {
+      width: 20px;
+      height: 20px;
+      background-color: #2ecc71;
+      color: #fff;
+      cursor: pointer;
+      text-align: center;
+      margin-right: 15px; }
+      #done .done-task .checked-task i {
+        font-size: 18px; }
+    #done .done-task .task-name {
+      color: #a6a5a4;
+      font-weight: none;
+      font-size: 18px;
+      line-height: normal;
+      vertical-align: middle; }
+    #done .done-task .delete-task, #done .done-task .edit-task {
+      height: 20px;
+      cursor: pointer;
+      padding: 0 5px;
+      vertical-align: middle; }
+      #done .done-task .delete-task i, #done .done-task .edit-task i {
+        color: #ccc;
+        margin-top: -3px; }
+    #done .done-task .delete-task {
+      border-left: 1px dotted #ccc; }
+      #done .done-task .delete-task:hover i {
+        color: #e74c3c; }
+    #done .done-task .edit-task:hover i {
+      color: #e7a514; }
+
+#edit-bkg {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.8;
+  filter: alpha(opacity=50);
   position: fixed;
-  bottom: 85px;
-  right: 85px;
-}
-.remove-done i {
+  top: 0px;
+  left: 0px;
+  z-index: 11;
+  display: none; }
+
+#editPopup {
+  width: 70%;
+  height: 200px;
+  background-color: #fff;
+  position: fixed;
+  top: 50%;
+  margin-top: -100px;
+  left: 50%;
+  margin-left: -35%;
+  z-index: 12;
+  display: none; }
+  #editPopup .closePopup {
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    color: #fff;
+    border: none;
+    border-radius: 50% !important;
+    position: absolute;
+    top: 7px;
+    right: 7px; }
+    #editPopup .closePopup i {
+      font-size: 16px;
+      display: inline-block;
+      vertical-align: middle; }
+
+#edit-input {
+  width: 75%;
+  height: 30px;
+  background-color: #fff;
+  text-indent: 10px;
+  display: block;
+  position: absolute;
+  margin-top: -25px;
+  top: 50%;
+  margin-left: -37.5%;
+  left: 50%;
+  border: none;
+  border: 0.5px solid #e7a514;
+  font-size: 18px; }
+
+#save {
+  width: 60px;
+  height: 30px;
+  background-color: #e7a514;
   color: #fff;
-}
-/*done task remover button*/
-.remove-done button {
-  box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.2);
-  background-color: #e01b1b;
-  transition-duration: 0.5s;
-}
-/*done task remover button on hover*/
-.remove-done button:hover {
-  transform: scale(1.15,1.15);
-}
+  display: block;
+  position: absolute;
+  bottom: 20%;
+  margin-left: -25px;
+  left: 50%;
+  border: none;
+  font-size: 18px; }
+
+@media only screen and (min-width: 768px) {
+  #input-holder,
+  #editPopup {
+    max-width: 500px;
+    margin-left: -250px;
+    left: 50%; } }
+
+/*# sourceMappingURL=style.css.map */

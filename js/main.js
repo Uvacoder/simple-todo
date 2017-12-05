@@ -1,87 +1,273 @@
 $(document).ready(function() {
   // done and remove icons
-  var completeIcon = '<i class="fa fa-check fa-2x" aria-hidden="true"></i>'
-  var removeIcon = '<i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>'
-  // adds the input to a task on click of add button
-  document.getElementById('add').addEventListener('click', function() {
-    var todoInput = document.getElementById('todoInput');
-    var value = todoInput.value;
-    if (value) {
-      addTask(value);
-    }
+  var completeIcon = '<i class="material-icons">done</i>';
+  var removeIcon = '<i class="material-icons">delete</i>';
+  var editIcon = '<i class="material-icons">edit</i>';
 
+  // TEST
+  // Task presence notification
+  if (!$('#done').has('.done-task')) {
+     // $('#notif').html('You have no tasks to complete.');
+     console.log("no task at all");
+  } else if ($('#done').has('.done-task')) {
+     // $('#notif').html('You have completed all your tasks.');
+     console.log("all done");
+  } else {
+    // $('#notif').html('');
+    console.log("full task");
+  }
+
+  // Close Edit Popup
+  function closePopup() {
+    $('#edit-bkg').fadeOut('fast');
+    $('#editPopup').fadeOut('fast');
+    $('#edit-input').val('');
+  }
+  $('#edit-bkg').click(closePopup);
+  $('#editPopup .closePopup').click(closePopup);
+
+  // Edit task function
+  function editTask() {
+    var $toBeEdited = $(this).prev().prev();
+    $('#edit-bkg').fadeIn('fast');
+    $('#editPopup').fadeIn('fast');
+    $('#edit-input').val($toBeEdited.text());
+    $('#save').click(function() {
+      var $editedText = $('#edit-input').val();
+      if ($editedText) {
+        $toBeEdited.html($editedText);
+        $('#edit-bkg').fadeOut('fast');
+        $('#editPopup').fadeOut('fast');
+      } else {
+        $('#edit-input').css('border','0.5px solid red');
+        setTimeout(function() {
+          $('#edit-input').css('border','0.5px solid #e7a514');
+        }, 1500);
+      }
+    });
+  }
+
+  // Adds Task from Input
+  function addTheTask() {
+    var $taskInput = $('#input');
+    var $value = $taskInput.val();
+    if ($value) {
+      addTask($value);
+    } else {
+      $taskInput.css('border','1px solid red');
+      setTimeout(function() {
+        $taskInput.css('border','none');
+      }, 1500);
+    }
+  }
+  $('#add-task').click(addTheTask);
+  $("#input").keypress(function(e) {
+    if (e.which == 13) {
+      addTheTask();
+    }
+  });
+
+  // Display options: Delete all and Sync
+  $('#options-btn').click(function() {
+    if ($('#option-holder').css("display") == "none") {
+      $('#option-holder').css({display:'grid'});
+    } else {
+      $('#option-holder').css({display:"none"});
+    }
   });
 
   //adds a task to list
    function addTask(item) {
-     var list = document.getElementById('todolist');
+     // To do list
+     var $todoList = $('#todo');
 
-     var task = document.createElement('li');
-     var msg = document.createElement('p');
-     msg.innerText = item;
+     // Task
+     var $task = $("<li>", {
+       class: "task"
+     });
+     var $taskName = $("<span>", {
+       class: "task-name"
+     });
+     $taskName.text(item);
 
-     var buttons = document.createElement('div');
-     buttons.classList.add('buttons');
+     // Complete task button
+     var $complete = $("<span>", {
+       class: "check-task"
+     });
+     $complete.addClass("pull-left");
+     $complete.click(completeTask);
 
-     var complete = document.createElement('button');
-     complete.classList.add('complete');
-     complete.innerHTML = completeIcon;
-     complete.addEventListener('click',completeTask);
+     // Edit task button
+     var $edit = $("<span>", {
+       class: "edit-task"
+     });
+     $edit.addClass("pull-right");
+     $edit.html(editIcon);
+     // Edit function
+     $edit.click(editTask);
 
-     var remove = document.createElement('button');
-     remove.classList.add('remove');
-     remove.innerHTML = removeIcon;
-     remove.addEventListener('click',removeTask);
+     // Delete task button
+     var $remove = $("<span>", {
+       class: "delete-task"
+     });
+     $remove.addClass("pull-right");
+     $remove.html(removeIcon);
+     $remove.click(removeTask);
 
-     buttons.appendChild(complete);
-     buttons.appendChild(remove);
-     task.appendChild(msg);
-     task.appendChild(buttons);
+     // Append elements to task
+     $task.append($complete);
+     $task.append($taskName);
+     $task.append($remove);
+     $task.append($edit);
 
-
-     list.insertBefore(task,list.childNodes[0]);
-     document.getElementById('todoInput').value='';
+     // Append task to todo list
+     $todoList.prepend($task);
+     // Clear input
+     $("#input").val('');
    }
+   
+   // uncompletes a task
+   function uncompleteTask() {
+     var $todoList = $("#todo");
+     var $taskTitle = $(this).next().text();
 
-   //completes a task
+     // Task
+     var $todoTask = $("<li>", {
+       class: "task"
+     });
+     var $taskName = $("<span>", {
+       class: "task-name"
+     });
+     $taskName.text($taskTitle);
+
+     // Completed task button
+     var $complete = $("<span>", {
+       class: "check-task"
+     });
+     $complete.addClass("pull-left");
+     $complete.html(completeIcon);
+     $complete.click(completeTask);
+
+     // Edit task button
+     var $edit = $("<span>", {
+       class: "edit-task"
+     });
+     $edit.addClass("pull-right");
+     $edit.html(editIcon);
+     // Edit function
+     $edit.click(editTask);
+
+     // Delete task button
+     var $remove = $("<span>", {
+       class: "delete-task"
+     });
+     $remove.addClass("pull-right");
+     $remove.html(removeIcon);
+     $remove.click(removeTask);
+
+     // Append elements to done task
+     $todoTask.append($complete);
+     $todoTask.append($taskName);
+     $todoTask.append($remove);
+     $todoTask.append($edit);
+
+     // Append task to the done list
+     $todoList.prepend($todoTask);
+
+     // Remove original element
+     var $doneItem = $(this).parent();
+     var $doneParent = $doneItem.parent();
+     $doneItem.remove();
+
+     // Task break display
+     if (!$('#done').has('.done-task')) {
+        $('#task-break').css('display','block');
+     } else {
+        $('#task-break').css('display','none');
+     }
+
+   }
+   // completes a task
    function completeTask() {
-     var doneList = document.getElementById('donelist');
-     var doneTask = document.createElement('li');
-     doneTask.classList.add('done-tasks');
+     var $doneList = $("#done");
+     var $taskTitle = $(this).next().text();
 
-     var complete = document.createElement('button');
-     complete.classList.add('completed');
-     complete.innerHTML = completeIcon;
+     // Task
+     var $doneTask = $("<li>", {
+       class: "done-task"
+     });
+     var $taskName = $("<span>", {
+       class: "task-name"
+     });
+     $taskName.text($taskTitle);
 
-     var doneItem = this.parentNode.parentNode;
-     var mainItem = doneItem.childNodes[0];
+     // Completed task button
+     var $complete = $("<span>", {
+       class: "checked-task"
+     });
+     $complete.addClass("pull-left");
+     $complete.html(completeIcon);
+     $complete.click(uncompleteTask);
 
-     doneTask.appendChild(complete);
-     doneTask.appendChild(mainItem);
-     doneList.insertBefore(doneTask,doneList.childNodes[0]);
+     // Edit task button
+     var $edit = $("<span>", {
+       class: "edit-task"
+     });
+     $edit.addClass("pull-right");
+     $edit.html(editIcon);
+     // Edit function
+     $edit.click(editTask);
 
-     var doneParent = doneItem.parentNode;
-     doneParent.removeChild(doneItem);
+     // Delete task button
+     var $remove = $("<span>", {
+       class: "delete-task"
+     });
+     $remove.addClass("pull-right");
+     $remove.html(removeIcon);
+     $remove.click(removeTask);
+
+     // Append elements to done task
+     $doneTask.append($complete);
+     $doneTask.append($taskName);
+     $doneTask.append($remove);
+     $doneTask.append($edit);
+
+     // Append task to the done list
+     $doneList.prepend($doneTask);
+
+     // Remove original element
+     var $doneItem = $(this).parent();
+     var $doneParent = $doneItem.parent();
+     $doneItem.remove();
+
+     // Task break display
+     if ($doneList.has('.done-task')) {
+        $('#task-break').css('display','block');
+     } else {
+        $('#task-break').css('display','none');
+     }
 
    }
 
-   //removes a task
-   function removeTask() {
-     var item = this.parentNode.parentNode;
-     var parent = document.getElementById('todolist');
-     parent.removeChild(item);
+   // Removes a task from both lists
+  function removeTask() {
+      var $item = $(this).parent();
+      $item.remove();
 
-   }
-
-  var delBtn = document.getElementById('delAll');
-  delBtn.addEventListener('click',removeDoneTask);
-  //remove done task
-  function removeDoneTask() {
-    var doneList = document.getElementById('donelist');
-
-    while (doneList.hasChildNodes()) {
-      doneList.removeChild(doneList.firstChild);
-    }
+      // Task break display
+      if (!$('#done').has('.done-task')) {
+         $('#task-break').css('display','inline-block');
+      } else {
+         $('#task-break').css('display','none');
+      }
   }
 
-})
+  // Removes All Done Tasks
+  var $deleteAll = $('#del-all');
+  $deleteAll.click(function() {
+      $("#done").empty();
+      $('#option-holder').css({display:"none"});
+      $("#no-done-notif").css({display:"block"});
+  });
+
+});

@@ -1,0 +1,375 @@
+// Size Mixin: Width + Height
+@mixin size($width,$height) {
+  width: $width;
+  height: $height;
+}
+// Background Color Mixin
+@mixin bkg($bkg) {
+  background-color: $bkg;
+}
+// Mixin: Transition
+@mixin transition($seconds) {
+  transition: $seconds;
+  -o-transition: $seconds;
+  -moz-transition: $seconds;
+  -webkit-transition: $seconds;
+}
+// Mixin: Box Shadow
+@mixin box-shadow($prop) {
+  box-shadow: $prop;
+  -o-box-shadow: $prop;
+  -ms-box-shadow: $prop;
+  -moz-box-shadow: $prop;
+  -webkit-box-shadow: $prop;
+}
+// Mixin: Transform
+@mixin transform($property) {
+  transform: $property;
+  -o-transform: $property;
+  -ms-transform: $property;
+  -moz-transform: $property;
+  -webkit-transform: $property;
+}
+// Every Element
+* {
+  border-radius: 0px !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  -ms-appearance: none !important;
+  -o-appearance: none !important;
+  appearance: none !important;
+  outline: none !important;
+  @include transition(0.3s);
+  font-family: 'Tw Cen MT', 'Raleway', sans-serif;
+}
+// Every Link
+a {
+  text-decoration: none !important;
+  &:hover {
+    text-decoration: none !important;
+  }
+}
+// Every list
+li {
+  list-style-type: none;
+}
+// Header: Logo and options
+#header {
+  @include size(100%, 60px);
+  @include bkg(#fff);
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: #000;
+  box-shadow: 1px 1px 50px rgba(0,0,0,0.15);
+  z-index: 10;
+  // Logo
+  #logo {
+    @include size(50px, 60px);
+    padding-top: 5px;
+    img {
+      @include size(25px, 25px);
+    }
+    h4 {
+      position: relative;
+      top: -5px;
+    }
+  }
+  #options-btn {
+    @include size(40px, 50px);
+    @include bkg(#fff);
+    position: fixed;
+    top: 5px;
+    right: 10px;
+    border: none;
+  }
+  #option-holder {
+    @include size(100px,50px);
+    @include box-shadow(1px 1px 50px rgba(0,0,0,0.15));
+    position: absolute;
+    top: 50px;
+    right: 15px;
+    background: #fff;
+    display: none;
+    grid-template-columns: 50px 50px;
+    grid-template-rows: 50px;
+    &::before {
+      content: "";
+      position: absolute;
+      right: 5px;
+      bottom: 100%;
+      border-width: 10px;
+      border-style: solid;
+      border-color: transparent transparent #fff transparent;
+    }
+    button {
+      z-index: 100;
+      background: transparent;
+      border: none;
+      box-sizing: border-box;
+      &:first-of-type {
+        i {
+          vertical-align: middle;
+          color: #2ecc71;
+        }
+      }
+      &:nth-of-type(2) {
+        border-left: 1px dotted #ccc;
+        i {
+          vertical-align: middle;
+          color: #e74c3c;
+        }
+      }
+    }
+  }
+}
+// Input container
+#input-holder {
+  @include size(70%,40px);
+  @include box-shadow(1px 1px 50px rgba(0,0,0,0.15));
+  margin-left: -35%;
+  position: absolute;
+  left: 50%;
+  top: 75px;
+  border: none;
+  // Input
+  #input {
+    height: 100%;
+    border: none;
+    font-size: 18px;
+    &:focus {
+      @include box-shadow(none);
+    }
+  }
+  // Add button
+  #add-task {
+    @include bkg(#2ecc71);
+    @include size(40px,40px);
+    border: none;
+    color: #fff;
+    i {
+      vertical-align: middle;
+    }
+  }
+}
+// Line Break between input and tasks
+#input-break {
+  width: 200px;
+  margin-top: 150px;
+}
+// Tasks to be done
+#todo {
+  @include size(80%,auto);
+  margin-top: 25px;
+  max-width: 625px;
+  // No tasks to do notification
+  #notif {
+    font-size: 18px;
+    color: #858585;
+  }
+  // Each uncompleted task
+  .task {
+    @include size(100%,40px);
+    @include box-shadow(1px 1px 50px rgba(0,0,0,0.15));
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    border-left: 5px solid #e74c3c;
+    // Unchecked Checkbox
+    .check-task {
+      @include size(20px,20px);
+      @include bkg(#ccc);
+      cursor: pointer;
+      text-align: center;
+      margin-right: 15px;
+      i {
+        font-size: 18px;
+        color: #ccc;
+      }
+    }
+    // Task name
+    .task-name {
+      font-weight: bold;
+      font-size: 18px;
+      line-height: normal;
+      vertical-align: middle;
+    }
+    // Delete and edit icons
+    .delete-task, .edit-task {
+      height: 20px;
+      cursor: pointer;
+      padding: 0 5px;
+      vertical-align: middle;
+      i {
+        color: #ccc;
+        margin-top: -3px;
+      }
+    }
+    .delete-task {
+      border-left: 1px dotted #ccc;
+      &:hover i {
+        color: #e74c3c;
+      }
+    }
+    .edit-task {
+      &:hover i {
+        color: #e7a514;
+      }
+    }
+  }
+}
+// Text notifications
+.notif {
+  display: block;
+}
+// Line Break between complete and incomplete tasks
+#task-break {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  display: none;
+  hr {
+    width: 200px;
+    margin-bottom: 0;
+    border: 0.5px solid #2ecc71;
+  }
+  #task-break-circle {
+    @include size(40px,20px);
+    @include bkg(#2ecc71);
+    border-radius: 10px !important;
+    position: relative;
+    top: -10px;
+    i {
+      font-size: 15px;
+      color: #fff;
+      vertical-align: middle;
+      margin-top: -1px;
+    }
+  }
+}
+// Completed Tasks
+#done {
+  @include size(80%,auto);
+  max-width: 625px;
+  // Each completed task
+  .done-task {
+    @include size(100%,40px);
+    @include box-shadow(1px 1px 50px rgba(0,0,0,0.15));
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    border-left: 5px solid #2ecc71;
+    // Checked Checkbox
+    .checked-task {
+      @include size(20px,20px);
+      @include bkg(#2ecc71);
+      color: #fff;
+      cursor: pointer;
+      text-align: center;
+      margin-right: 15px;
+      i {
+        font-size: 18px;
+      }
+    }
+    // Task name
+    .task-name {
+      color: #a6a5a4;
+      font-weight: none;
+      font-size: 18px;
+      line-height: normal;
+      vertical-align: middle;
+    }
+    // Delete and edit icons
+    .delete-task, .edit-task {
+      height: 20px;
+      cursor: pointer;
+      padding: 0 5px;
+      vertical-align: middle;
+      i {
+        color: #ccc;
+        margin-top: -3px;
+      }
+    }
+    .delete-task {
+      border-left: 1px dotted #ccc;
+      &:hover i {
+        color: #e74c3c;
+      }
+    }
+    .edit-task {
+      &:hover i {
+        color: #e7a514;
+      }
+    }
+  }
+}
+// Edit text background
+#edit-bkg {
+  @include size(100%,100%);
+  @include bkg(#000);
+  opacity: 0.8;
+  filter: alpha(opacity=50);
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 11;
+  display: none;
+}
+#editPopup {
+  @include size(70%,200px);
+  @include bkg(#fff);
+  position: fixed;
+  top: 50%;
+  margin-top: -100px;
+  left: 50%;
+  margin-left: -35%;
+  z-index: 12;
+  display: none;
+  .closePopup {
+    @include size(30px,30px);
+    @include bkg(red);
+    color: #fff;
+    border: none;
+    border-radius: 50% !important;
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    i {
+      font-size: 16px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+}
+#edit-input {
+  @include size(75%,30px);
+  @include bkg(#fff);
+  text-indent: 10px;
+  display: block;
+  position: absolute;
+  margin-top: -25px;
+  top: 50%;
+  margin-left: -37.5%;
+  left: 50%;
+  border: none;
+  border: 0.5px solid #e7a514;
+  font-size: 18px;
+}
+#save {
+  @include size(60px,30px);
+  @include bkg(#e7a514);
+  color: #fff;
+  display: block;
+  position: absolute;
+  bottom: 20%;
+  margin-left: -25px;
+  left: 50%;
+  border: none;
+  font-size: 18px;
+}
+// Wide screen (> 768px)
+@media only screen and (min-width: 768px) {
+  #input-holder,
+  #editPopup {
+    max-width: 500px;
+    margin-left: -250px;
+    left: 50%;
+  }
+}
