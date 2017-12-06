@@ -125,7 +125,7 @@ $(document).ready(function() {
      // Clear input
      $("#input").val('');
    }
-   
+
    // uncompletes a task
    function uncompleteTask() {
      var $todoList = $("#todo");

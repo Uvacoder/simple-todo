@@ -91,6 +91,11 @@ body {
 #input-holder {
   width: 70%;
   height: 40px;
+  box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.15);
+  -o-box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.15);
+  -ms-box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.15);
   margin-left: -35%;
   position: absolute;
   left: 50%;
@@ -98,8 +103,13 @@ body {
   border: none; }
   #input-holder #input {
     background-color: #fff;
-    height: 100%;
-    border: none; }
+    height: 40px;
+    border: none;
+    box-shadow: none;
+    -o-box-shadow: none;
+    -ms-box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none; }
     #input-holder #input:focus {
       box-shadow: none;
       -o-box-shadow: none;
@@ -269,6 +279,7 @@ body {
     top: 7px;
     right: 7px; }
     #editPopup .closePopup i {
+      text-align: center;
       font-size: 16px;
       display: inline-block;
       vertical-align: middle; }
@@ -291,6 +302,7 @@ body {
   width: 60px;
   height: 30px;
   background-color: #e7a514;
+  text-align: center;
   color: #fff;
   display: block;
   position: absolute;
