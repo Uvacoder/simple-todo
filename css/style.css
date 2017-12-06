@@ -20,6 +20,9 @@ a {
 li {
   list-style-type: none; }
 
+body {
+  background-color: #ddd; }
+
 #header {
   width: 100%;
   height: 60px;
@@ -88,20 +91,15 @@ li {
 #input-holder {
   width: 70%;
   height: 40px;
-  box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.15);
-  -o-box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.15);
-  -ms-box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.15);
-  -moz-box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.15);
-  -webkit-box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.15);
   margin-left: -35%;
   position: absolute;
   left: 50%;
-  top: 75px;
+  top: 85px;
   border: none; }
   #input-holder #input {
+    background-color: #fff;
     height: 100%;
-    border: none;
-    font-size: 18px; }
+    border: none; }
     #input-holder #input:focus {
       box-shadow: none;
       -o-box-shadow: none;
@@ -127,7 +125,6 @@ li {
   margin-top: 25px;
   max-width: 625px; }
   #todo #notif {
-    font-size: 18px;
     color: #858585; }
   #todo .task {
     width: 100%;
@@ -152,7 +149,6 @@ li {
         color: #ccc; }
     #todo .task .task-name {
       font-weight: bold;
-      font-size: 18px;
       line-height: normal;
       vertical-align: middle; }
     #todo .task .delete-task, #todo .task .edit-task {
@@ -222,7 +218,6 @@ li {
     #done .done-task .task-name {
       color: #a6a5a4;
       font-weight: none;
-      font-size: 18px;
       line-height: normal;
       vertical-align: middle; }
     #done .done-task .delete-task, #done .done-task .edit-task {
@@ -290,8 +285,7 @@ li {
   margin-left: -37.5%;
   left: 50%;
   border: none;
-  border: 0.5px solid #e7a514;
-  font-size: 18px; }
+  border: 0.5px solid #e7a514; }
 
 #save {
   width: 60px;
@@ -303,8 +297,7 @@ li {
   bottom: 20%;
   margin-left: -25px;
   left: 50%;
-  border: none;
-  font-size: 18px; }
+  border: none; }
 
 @media only screen and (min-width: 768px) {
   #input-holder,

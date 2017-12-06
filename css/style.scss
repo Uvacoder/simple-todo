@@ -53,6 +53,9 @@ a {
 li {
   list-style-type: none;
 }
+body {
+  @include bkg(#ddd);
+}
 // Header: Logo and options
 #header {
   @include size(100%, 60px);
@@ -126,17 +129,16 @@ li {
 // Input container
 #input-holder {
   @include size(70%,40px);
-  @include box-shadow(1px 1px 50px rgba(0,0,0,0.15));
   margin-left: -35%;
   position: absolute;
   left: 50%;
-  top: 75px;
+  top: 85px;
   border: none;
   // Input
   #input {
+    @include bkg(#fff);
     height: 100%;
     border: none;
-    font-size: 18px;
     &:focus {
       @include box-shadow(none);
     }
@@ -164,7 +166,6 @@ li {
   max-width: 625px;
   // No tasks to do notification
   #notif {
-    font-size: 18px;
     color: #858585;
   }
   // Each uncompleted task
@@ -189,7 +190,6 @@ li {
     // Task name
     .task-name {
       font-weight: bold;
-      font-size: 18px;
       line-height: normal;
       vertical-align: middle;
     }
@@ -272,7 +272,6 @@ li {
     .task-name {
       color: #a6a5a4;
       font-weight: none;
-      font-size: 18px;
       line-height: normal;
       vertical-align: middle;
     }
@@ -350,7 +349,6 @@ li {
   left: 50%;
   border: none;
   border: 0.5px solid #e7a514;
-  font-size: 18px;
 }
 #save {
   @include size(60px,30px);
@@ -362,7 +360,6 @@ li {
   margin-left: -25px;
   left: 50%;
   border: none;
-  font-size: 18px;
 }
 // Wide screen (> 768px)
 @media only screen and (min-width: 768px) {
