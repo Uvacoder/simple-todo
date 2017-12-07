@@ -140,6 +140,7 @@ i, #logo {
     @include bkg(#fff);
     height: 40px;
     border: none;
+    font-size: 16px !important;
     @include box-shadow(none);
     &:focus {
       @include box-shadow(none);
@@ -359,6 +360,7 @@ i, #logo {
   top: 50%;
   margin-left: -37.5%;
   left: 50%;
+  font-size: 16px !important;
   border: none;
   border: 0.5px solid #e7a514;
 }
