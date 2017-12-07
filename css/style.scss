@@ -53,8 +53,8 @@ a {
 li {
   list-style-type: none;
 }
-body {
-  @include bkg(#ddd);
+i, #logo {
+  user-select: none;
 }
 // Header: Logo and options
 #header {
@@ -91,7 +91,7 @@ body {
     @include box-shadow(1px 1px 50px rgba(0,0,0,0.15));
     position: absolute;
     top: 50px;
-    right: 15px;
+    right: 12.5px;
     background: #fff;
     display: none;
     grid-template-columns: 50px 50px;
@@ -152,6 +152,8 @@ body {
     border: none;
     color: #fff;
     i {
+      width: 100%;
+      text-align: center;
       vertical-align: middle;
     }
   }
@@ -172,10 +174,12 @@ body {
   }
   // Each uncompleted task
   .task {
-    @include size(100%,40px);
     @include box-shadow(1px 1px 50px rgba(0,0,0,0.15));
+    width: 100%;
+    height: auto;
+    min-height: 40px;
     margin-bottom: 20px;
-    padding: 10px 15px;
+    padding: 10px 5px 10px 10px;
     border-left: 5px solid #e74c3c;
     // Unchecked Checkbox
     .check-task {
@@ -183,7 +187,7 @@ body {
       @include bkg(#ccc);
       cursor: pointer;
       text-align: center;
-      margin-right: 15px;
+      margin-right: 10px;
       i {
         font-size: 18px;
         color: #ccc;
@@ -191,8 +195,9 @@ body {
     }
     // Task name
     .task-name {
+      width: 70%;
+      display: inline-block;
       font-weight: bold;
-      line-height: normal;
       vertical-align: middle;
     }
     // Delete and edit icons
@@ -253,10 +258,12 @@ body {
   max-width: 625px;
   // Each completed task
   .done-task {
-    @include size(100%,40px);
     @include box-shadow(1px 1px 50px rgba(0,0,0,0.15));
+    width: 100%;
+    height: auto;
+    min-height: 40px;
     margin-bottom: 20px;
-    padding: 10px 15px;
+    padding: 10px 5px 10px 10px;
     border-left: 5px solid #2ecc71;
     // Checked Checkbox
     .checked-task {
@@ -265,7 +272,7 @@ body {
       color: #fff;
       cursor: pointer;
       text-align: center;
-      margin-right: 15px;
+      margin-right: 10px;
       i {
         font-size: 18px;
       }
@@ -273,8 +280,9 @@ body {
     // Task name
     .task-name {
       color: #a6a5a4;
+      width: 70%;
+      display: inline-block;
       font-weight: none;
-      line-height: normal;
       vertical-align: middle;
     }
     // Delete and edit icons
@@ -333,6 +341,7 @@ body {
     top: 7px;
     right: 7px;
     i {
+      width: 100%;
       text-align: center;
       font-size: 16px;
       display: inline-block;
@@ -364,6 +373,33 @@ body {
   margin-left: -25px;
   left: 50%;
   border: none;
+}
+// Small screens (< 425px)
+@media only screen and (max-width: 425px) {
+  // Tasks to be done
+  #done .done-task .task-name,
+  #todo .task .task-name {
+    width: 55%;
+  }
+}
+// Small screens (< 480px)
+@media only screen and (max-width: 480px) {
+  // Tasks to be done
+  #done, #todo {
+    @include size(95%,auto);
+  }
+  #input-holder {
+    @include size(85%,auto);
+    margin-left: -42.5%;
+  }
+  #editPopup {
+    @include size(85%,400px);
+    position: fixed;
+    top: 50%;
+    margin-top: -200px;
+    left: 50%;
+    margin-left: -42.5%;
+  }
 }
 // Wide screen (> 768px)
 @media only screen and (min-width: 768px) {

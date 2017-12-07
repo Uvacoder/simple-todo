@@ -20,8 +20,8 @@ a {
 li {
   list-style-type: none; }
 
-body {
-  background-color: #ddd; }
+i, #logo {
+  user-select: none; }
 
 #header {
   width: 100%;
@@ -61,7 +61,7 @@ body {
     -webkit-box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.15);
     position: absolute;
     top: 50px;
-    right: 15px;
+    right: 12.5px;
     background: #fff;
     display: none;
     grid-template-columns: 50px 50px;
@@ -123,6 +123,8 @@ body {
     border: none;
     color: #fff; }
     #input-holder #add-task i {
+      width: 100%;
+      text-align: center;
       vertical-align: middle; }
 
 #input-break {
@@ -137,15 +139,16 @@ body {
   #todo #notif {
     color: #858585; }
   #todo .task {
-    width: 100%;
-    height: 40px;
     box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.15);
     -o-box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.15);
     -ms-box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.15);
     -moz-box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.15);
     -webkit-box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    height: auto;
+    min-height: 40px;
     margin-bottom: 20px;
-    padding: 10px 15px;
+    padding: 10px 5px 10px 10px;
     border-left: 5px solid #e74c3c; }
     #todo .task .check-task {
       width: 20px;
@@ -153,13 +156,14 @@ body {
       background-color: #ccc;
       cursor: pointer;
       text-align: center;
-      margin-right: 15px; }
+      margin-right: 10px; }
       #todo .task .check-task i {
         font-size: 18px;
         color: #ccc; }
     #todo .task .task-name {
+      width: 70%;
+      display: inline-block;
       font-weight: bold;
-      line-height: normal;
       vertical-align: middle; }
     #todo .task .delete-task, #todo .task .edit-task {
       height: 20px;
@@ -205,15 +209,16 @@ body {
   height: auto;
   max-width: 625px; }
   #done .done-task {
-    width: 100%;
-    height: 40px;
     box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.15);
     -o-box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.15);
     -ms-box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.15);
     -moz-box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.15);
     -webkit-box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    height: auto;
+    min-height: 40px;
     margin-bottom: 20px;
-    padding: 10px 15px;
+    padding: 10px 5px 10px 10px;
     border-left: 5px solid #2ecc71; }
     #done .done-task .checked-task {
       width: 20px;
@@ -222,13 +227,14 @@ body {
       color: #fff;
       cursor: pointer;
       text-align: center;
-      margin-right: 15px; }
+      margin-right: 10px; }
       #done .done-task .checked-task i {
         font-size: 18px; }
     #done .done-task .task-name {
       color: #a6a5a4;
+      width: 70%;
+      display: inline-block;
       font-weight: none;
-      line-height: normal;
       vertical-align: middle; }
     #done .done-task .delete-task, #done .done-task .edit-task {
       height: 20px;
@@ -279,6 +285,7 @@ body {
     top: 7px;
     right: 7px; }
     #editPopup .closePopup i {
+      width: 100%;
       text-align: center;
       font-size: 16px;
       display: inline-block;
@@ -311,6 +318,28 @@ body {
   left: 50%;
   border: none; }
 
+@media only screen and (max-width: 425px) {
+  #done .done-task .task-name,
+  #todo .task .task-name {
+    width: 55%; } }
+@media only screen and (max-width: 480px) {
+  #done, #todo {
+    width: 95%;
+    height: auto; }
+
+  #input-holder {
+    width: 85%;
+    height: auto;
+    margin-left: -42.5%; }
+
+  #editPopup {
+    width: 85%;
+    height: 400px;
+    position: fixed;
+    top: 50%;
+    margin-top: -200px;
+    left: 50%;
+    margin-left: -42.5%; } }
 @media only screen and (min-width: 768px) {
   #input-holder,
   #editPopup {

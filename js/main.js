@@ -31,6 +31,7 @@ $(document).ready(function() {
     var $toBeEdited = $(this).prev().prev();
     $('#edit-bkg').fadeIn('fast');
     $('#editPopup').fadeIn('fast');
+    $('#edit-input').focus();
     $('#edit-input').val($toBeEdited.text());
     $('#save').click(function() {
       var $editedText = $('#edit-input').val();
@@ -267,7 +268,12 @@ $(document).ready(function() {
   $deleteAll.click(function() {
       $("#done").empty();
       $('#option-holder').css({display:"none"});
-      $("#no-done-notif").css({display:"block"});
+      // Task break display
+      if (!$('#done').has('.done-task')) {
+         $('#task-break').css('display','inline-block');
+      } else {
+         $('#task-break').css('display','none');
+      }
   });
 
 });
