@@ -16,6 +16,8 @@ $(document).ready(function() {
     // $('#notif').html('');
     console.log("full task");
   }
+
+  // Disables auto zoom o iOS devices
   $('input').on('focus', function(){
     // replace CSS font-size with 16px to disable auto zoom on iOS
     $(this).data('fontSize', $(this).css('font-size')).css('font-size', '16px');
@@ -68,12 +70,13 @@ $(document).ready(function() {
       }, 1500);
     }
   }
+  // Add task to list: click and enter
   $('#add-task').click(addTheTask);
   $("#input").keypress(function(e) {
     if (e.which == 13) {
       addTheTask();
     }
-  });
+  });  
 
   // Display options: Delete all and Sync
   $('#options-btn').click(function() {
