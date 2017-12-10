@@ -29,7 +29,7 @@ $(document).ready(function() {
   // Close Edit Popup
   function closePopup() {
     $('#edit-bkg').fadeOut('fast');
-    $('#editPopup').fadeOut('fast');
+    $('#editPopup').slideUp('fast');
     $('#edit-input').val('');
   }
   $('#edit-bkg').click(closePopup);
@@ -39,15 +39,15 @@ $(document).ready(function() {
   function editTask() {
     var $toBeEdited = $(this).prev().prev();
     $('#edit-bkg').fadeIn('fast');
-    $('#editPopup').fadeIn('fast');
+    $('#editPopup').slideDown('fast');
     $('#edit-input').focus();
     $('#edit-input').val($toBeEdited.text());
     $('#save').click(function() {
       var $editedText = $('#edit-input').val();
       if ($editedText) {
-        $toBeEdited.html($editedText);
+        $toBeEdited.text($editedText);
         $('#edit-bkg').fadeOut('fast');
-        $('#editPopup').fadeOut('fast');
+        $('#editPopup').slideUp('fast');
       } else {
         $('#edit-input').css('border','0.5px solid red');
         setTimeout(function() {
@@ -76,14 +76,36 @@ $(document).ready(function() {
     if (e.which == 13) {
       addTheTask();
     }
-  });  
+  });
 
   // Display options: Delete all and Sync
+  // FIXME: Hide / Display when other elt is clicked
   $('#options-btn').click(function() {
     if ($('#option-holder').css("display") == "none") {
       $('#option-holder').css({display:'grid'});
     } else {
-      $('#option-holder').css({display:"none"});
+      $('#option-holder').css({display:'none'});
+    }
+  });
+  // Click anywhere to hide menus
+  $('body > :not(#option-holder)').click(function() {
+    if ($('#option-holder').css("display") == "grid") {
+      $('#option-holder').css({display:'none'});
+    }
+  });
+
+  // Display Navigation
+  $('#nav-icon').click(function() {
+    if ($('#nav-menu').css("display") == "none") {
+      $('#nav-menu').css({display:'inline-block'});
+    } else {
+      $('#nav-menu').css({display:'none'});
+    }
+  });
+  // Click anywhere to hide navigation
+  $('body > :not(#nav-menu)').click(function() {
+    if ($('#nav-menu').css("display") == "inline-block") {
+      $('#nav-menu').css({display:'none'});
     }
   });
 
@@ -105,23 +127,21 @@ $(document).ready(function() {
      var $complete = $("<span>", {
        class: "check-task"
      });
-     $complete.addClass("pull-left");
      $complete.click(completeTask);
 
      // Edit task button
      var $edit = $("<span>", {
        class: "edit-task"
      });
-     $edit.addClass("pull-right");
+     $edit.addClass("task-options");
      $edit.html(editIcon);
-     // Edit function
      $edit.click(editTask);
 
      // Delete task button
      var $remove = $("<span>", {
        class: "delete-task"
      });
-     $remove.addClass("pull-right");
+     $remove.addClass("task-options");
      $remove.html(removeIcon);
      $remove.click(removeTask);
 
@@ -155,7 +175,6 @@ $(document).ready(function() {
      var $complete = $("<span>", {
        class: "check-task"
      });
-     $complete.addClass("pull-left");
      $complete.html(completeIcon);
      $complete.click(completeTask);
 
@@ -163,16 +182,15 @@ $(document).ready(function() {
      var $edit = $("<span>", {
        class: "edit-task"
      });
-     $edit.addClass("pull-right");
+     $edit.addClass("task-options");
      $edit.html(editIcon);
-     // Edit function
      $edit.click(editTask);
 
      // Delete task button
      var $remove = $("<span>", {
        class: "delete-task"
      });
-     $remove.addClass("pull-right");
+     $remove.addClass("task-options");
      $remove.html(removeIcon);
      $remove.click(removeTask);
 
@@ -216,7 +234,6 @@ $(document).ready(function() {
      var $complete = $("<span>", {
        class: "checked-task"
      });
-     $complete.addClass("pull-left");
      $complete.html(completeIcon);
      $complete.click(uncompleteTask);
 
@@ -224,16 +241,15 @@ $(document).ready(function() {
      var $edit = $("<span>", {
        class: "edit-task"
      });
-     $edit.addClass("pull-right");
+     $edit.addClass("task-options");
      $edit.html(editIcon);
-     // Edit function
      $edit.click(editTask);
 
      // Delete task button
      var $remove = $("<span>", {
        class: "delete-task"
      });
-     $remove.addClass("pull-right");
+     $remove.addClass("task-options");
      $remove.html(removeIcon);
      $remove.click(removeTask);
 
