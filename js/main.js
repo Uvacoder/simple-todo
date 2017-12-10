@@ -16,6 +16,20 @@ $(document).ready(function() {
     // $('#notif').html('');
     console.log("full task");
   }
+  // Ajax loader
+  $.ajax({
+    url:"js/data.json",
+    type:'GET',
+    dataType:'json',
+    success: function(tasks) {
+      $.each(tasks, function(i, item) {
+        addTask(item.task);
+      })
+    },
+    error: function() {
+      alert('Error Loading Tasks...');
+    }
+  });
 
   // Disables auto zoom o iOS devices
   $('input').on('focus', function(){
@@ -127,6 +141,7 @@ $(document).ready(function() {
      var $complete = $("<span>", {
        class: "check-task"
      });
+     $complete.addClass("pull-left");
      $complete.click(completeTask);
 
      // Edit task button
@@ -135,6 +150,7 @@ $(document).ready(function() {
      });
      $edit.addClass("task-options");
      $edit.html(editIcon);
+     // Edit function
      $edit.click(editTask);
 
      // Delete task button
@@ -152,7 +168,7 @@ $(document).ready(function() {
      $task.append($edit);
 
      // Append task to todo list
-     $todoList.prepend($task);
+     $todoList.append($task);
      // Clear input
      $("#input").val('');
    }
@@ -175,6 +191,7 @@ $(document).ready(function() {
      var $complete = $("<span>", {
        class: "check-task"
      });
+     $complete.addClass("pull-left");
      $complete.html(completeIcon);
      $complete.click(completeTask);
 
@@ -184,6 +201,7 @@ $(document).ready(function() {
      });
      $edit.addClass("task-options");
      $edit.html(editIcon);
+     // Edit function
      $edit.click(editTask);
 
      // Delete task button
@@ -234,6 +252,7 @@ $(document).ready(function() {
      var $complete = $("<span>", {
        class: "checked-task"
      });
+     $complete.addClass("pull-left");
      $complete.html(completeIcon);
      $complete.click(uncompleteTask);
 
@@ -243,6 +262,7 @@ $(document).ready(function() {
      });
      $edit.addClass("task-options");
      $edit.html(editIcon);
+     // Edit function
      $edit.click(editTask);
 
      // Delete task button

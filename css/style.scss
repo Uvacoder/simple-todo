@@ -80,7 +80,7 @@ body::-webkit-scrollbar-thumb {
   top: 0;
   left: 0;
   color: #000;
-  box-shadow: 1px 1px 20px rgba(0,0,0,0.15);
+  box-shadow: 1px 1px 10px rgba(0,0,0,0.15);
   z-index: 10;
   // Navigation icon
   #nav-icon {
@@ -95,7 +95,7 @@ body::-webkit-scrollbar-thumb {
   #nav-menu {
     @include size(300px,200px);
     @include bkg(#fff);
-    @include box-shadow(1px 1px 20px rgba(0,0,0,0.15));
+    @include box-shadow(1px 1px 15px rgba(0,0,0,0.15));
     position: absolute;
     top: 50px;
     left: 12.5px;
@@ -196,7 +196,7 @@ body::-webkit-scrollbar-thumb {
 // Input container
 #input-holder {
   @include size(70%,40px);
-  @include box-shadow(1px 1px 10px rgba(0,0,0,0.15));
+  @include box-shadow(1px 1px 5px rgba(0,0,0,0.15));
   margin-left: -35%;
   position: absolute;
   left: 50%;
@@ -242,7 +242,7 @@ body::-webkit-scrollbar-thumb {
   }
   // Each uncompleted task
   .task {
-    @include box-shadow(1px 1px 10px rgba(0,0,0,0.15));
+    @include box-shadow(1px 1px 5px rgba(0,0,0,0.15));
     width: 100%;
     height: auto;
     min-height: 40px;
@@ -327,7 +327,7 @@ body::-webkit-scrollbar-thumb {
   max-width: 625px;
   // Each completed task
   .done-task {
-    @include box-shadow(1px 1px 10px rgba(0,0,0,0.15));
+    @include box-shadow(1px 1px 5px rgba(0,0,0,0.15));
     width: 100%;
     height: auto;
     min-height: 40px;
@@ -395,7 +395,7 @@ body::-webkit-scrollbar-thumb {
 #editPopup {
   @include size(70%,200px);
   @include bkg(#fff);
-  @include box-shadow(1px 1px 10px rgba(0,0,0,0.15));
+  @include box-shadow(1px 1px 5px rgba(0,0,0,0.15));
   position: fixed;
   top: 50%;
   margin-top: -100px;
