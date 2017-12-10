@@ -153,7 +153,7 @@ body::-webkit-scrollbar-thumb {
   #option-holder {
     @include size(100px,50px);
     @include bkg(#fff);
-    @include box-shadow(1px 1px 20px rgba(0,0,0,0.15));
+    @include box-shadow(1px 1px 5px rgba(0,0,0,0.15));
     position: absolute;
     top: 50px;
     right: 12.5px;
@@ -196,7 +196,7 @@ body::-webkit-scrollbar-thumb {
 // Input container
 #input-holder {
   @include size(70%,40px);
-  @include box-shadow(1px 1px 20px rgba(0,0,0,0.15));
+  @include box-shadow(1px 1px 10px rgba(0,0,0,0.15));
   margin-left: -35%;
   position: absolute;
   left: 50%;
@@ -242,7 +242,7 @@ body::-webkit-scrollbar-thumb {
   }
   // Each uncompleted task
   .task {
-    @include box-shadow(1px 1px 20px rgba(0,0,0,0.15));
+    @include box-shadow(1px 1px 10px rgba(0,0,0,0.15));
     width: 100%;
     height: auto;
     min-height: 40px;
@@ -273,9 +273,8 @@ body::-webkit-scrollbar-thumb {
     .task-options {
       height: 20px;
       cursor: pointer;
-      padding: 0 5px;
+      padding: 0px 5px;
       float: right;
-      vertical-align: middle;
       i {
         color: #ccc;
         vertical-align: middle;
@@ -328,7 +327,7 @@ body::-webkit-scrollbar-thumb {
   max-width: 625px;
   // Each completed task
   .done-task {
-    @include box-shadow(1px 1px 20px rgba(0,0,0,0.15));
+    @include box-shadow(1px 1px 10px rgba(0,0,0,0.15));
     width: 100%;
     height: auto;
     min-height: 40px;
@@ -396,7 +395,7 @@ body::-webkit-scrollbar-thumb {
 #editPopup {
   @include size(70%,200px);
   @include bkg(#fff);
-  @include box-shadow(1px 1px 20px rgba(0,0,0,0.15));
+  @include box-shadow(1px 1px 10px rgba(0,0,0,0.15));
   position: fixed;
   top: 50%;
   margin-top: -100px;

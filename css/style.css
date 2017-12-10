@@ -119,11 +119,11 @@ body::-webkit-scrollbar-thumb {
     width: 100px;
     height: 50px;
     background-color: #fff;
-    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
-    -o-box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
-    -ms-box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
-    -moz-box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
-    -webkit-box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+    -o-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+    -ms-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
     position: absolute;
     top: 50px;
     right: 12.5px;
@@ -155,11 +155,11 @@ body::-webkit-scrollbar-thumb {
 #input-holder {
   width: 70%;
   height: 40px;
-  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
-  -o-box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
-  -ms-box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
-  -moz-box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
-  -webkit-box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
+  -o-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
+  -ms-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
   margin-left: -35%;
   position: absolute;
   left: 50%;
@@ -204,11 +204,11 @@ body::-webkit-scrollbar-thumb {
   #todo #notif {
     color: #858585; }
   #todo .task {
-    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
-    -o-box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
-    -ms-box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
-    -moz-box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
-    -webkit-box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
+    -o-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
+    -ms-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
     width: 100%;
     height: auto;
     min-height: 40px;
@@ -234,9 +234,8 @@ body::-webkit-scrollbar-thumb {
     #todo .task .task-options {
       height: 20px;
       cursor: pointer;
-      padding: 0 5px;
-      float: right;
-      vertical-align: middle; }
+      padding: 0px 5px;
+      float: right; }
       #todo .task .task-options i {
         color: #ccc;
         vertical-align: middle; }
@@ -276,11 +275,11 @@ body::-webkit-scrollbar-thumb {
   height: auto;
   max-width: 625px; }
   #done .done-task {
-    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
-    -o-box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
-    -ms-box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
-    -moz-box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
-    -webkit-box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
+    -o-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
+    -ms-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
     width: 100%;
     height: auto;
     min-height: 40px;
@@ -336,11 +335,11 @@ body::-webkit-scrollbar-thumb {
   width: 70%;
   height: 200px;
   background-color: #fff;
-  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
-  -o-box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
-  -ms-box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
-  -moz-box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
-  -webkit-box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
+  -o-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
+  -ms-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
   position: fixed;
   top: 50%;
   margin-top: -100px;
