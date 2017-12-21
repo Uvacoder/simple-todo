@@ -276,10 +276,9 @@ body::-webkit-scrollbar-thumb {
     @include box-shadow(none);
     height: 40px;
     border: none;
+    font-size: 16px !important;
     &:focus {
-      @include bkg(red);
       @include box-shadow(none);
-
     }
   }
   // Add button
