@@ -90,8 +90,47 @@ body::-webkit-scrollbar-thumb {
     top: 5px;
     left: 10px;
     border: none;
+<<<<<<< HEAD
     i {
       font-size: 20px;
+=======
+  }
+  // Navigation menu
+  #nav-menu {
+    @include size(300px,200px);
+    @include bkg(#fff);
+    @include box-shadow(1px 1px 15px rgba(0,0,0,0.15));
+    position: absolute;
+    top: 50px;
+    left: 12.5px;
+    z-index: 11;
+    display: none;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 5px;
+      bottom: 100%;
+      border-width: 10px;
+      border-style: solid;
+      border-color: transparent transparent #fff transparent;
+    }
+    #profile-picture {
+      @include size(100px,100px);
+      position: absolute;
+      margin-left: -50px;
+      top: 15px;
+      left: 50%;
+      border: 1px solid #2ecc71;
+      border-radius: 50% !important;
+      display: block;
+    }
+    #username {
+      width: 100%;
+      display: block;
+      position: absolute;
+      top: 140px;
+      text-align: center;
+>>>>>>> 157423b99d9abaeb54bc6b81c6f38563e6f6c900
     }
   }
   // Logo
@@ -265,8 +304,14 @@ body::-webkit-scrollbar-thumb {
 #input-holder {
   @include size(70%,40px);
   @include box-shadow(1px 1px 5px rgba(0,0,0,0.15));
+<<<<<<< HEAD
   margin: auto;
   position: relative;
+=======
+  margin-left: -35%;
+  position: absolute;
+  left: 50%;
+>>>>>>> 157423b99d9abaeb54bc6b81c6f38563e6f6c900
   top: 85px;
   border: none;
   // Input

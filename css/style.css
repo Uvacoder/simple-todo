@@ -59,8 +59,49 @@ body::-webkit-scrollbar-thumb {
     top: 5px;
     left: 10px;
     border: none; }
+<<<<<<< HEAD
     #header .nav-icon i {
       font-size: 20px; }
+=======
+  #header #nav-menu {
+    width: 300px;
+    height: 200px;
+    background-color: #fff;
+    box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.15);
+    -o-box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.15);
+    -ms-box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.15);
+    position: absolute;
+    top: 50px;
+    left: 12.5px;
+    z-index: 11;
+    display: none; }
+    #header #nav-menu::before {
+      content: "";
+      position: absolute;
+      left: 5px;
+      bottom: 100%;
+      border-width: 10px;
+      border-style: solid;
+      border-color: transparent transparent #fff transparent; }
+    #header #nav-menu #profile-picture {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      margin-left: -50px;
+      top: 15px;
+      left: 50%;
+      border: 1px solid #2ecc71;
+      border-radius: 50% !important;
+      display: block; }
+    #header #nav-menu #username {
+      width: 100%;
+      display: block;
+      position: absolute;
+      top: 140px;
+      text-align: center; }
+>>>>>>> 157423b99d9abaeb54bc6b81c6f38563e6f6c900
   #header #logo {
     width: 50px;
     height: 60px;
@@ -122,6 +163,7 @@ body::-webkit-scrollbar-thumb {
           line-height: 50px;
           color: #fff; }
 
+<<<<<<< HEAD
 #nav-menu {
   width: 350px;
   height: 100vh;
@@ -131,6 +173,17 @@ body::-webkit-scrollbar-thumb {
   -ms-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
   -webkit-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
+=======
+#input-holder {
+  width: 70%;
+  height: 40px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+  -o-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+  -ms-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+  margin-left: -35%;
+>>>>>>> 157423b99d9abaeb54bc6b81c6f38563e6f6c900
   position: absolute;
   top: 0px;
   left: -400px;
