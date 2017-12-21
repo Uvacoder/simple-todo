@@ -500,7 +500,6 @@ body::-webkit-scrollbar-thumb {
   }
   #input-holder {
     @include size(85%,auto);
-    margin-left: -42.5%;
   }
   #editPopup {
     @include size(85%,400px);
@@ -513,10 +512,12 @@ body::-webkit-scrollbar-thumb {
 }
 // Wide screen (> 768px)
 @media only screen and (min-width: 768px) {
-  #input-holder,
   #editPopup {
     max-width: 500px;
     margin-left: -250px;
     left: 50%;
+  }
+  #input-holder {
+    max-width: 500px;
   }
 }

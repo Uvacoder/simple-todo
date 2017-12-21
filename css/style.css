@@ -438,8 +438,7 @@ body::-webkit-scrollbar-thumb {
 
   #input-holder {
     width: 85%;
-    height: auto;
-    margin-left: -42.5%; }
+    height: auto; }
 
   #editPopup {
     width: 85%;
@@ -450,10 +449,12 @@ body::-webkit-scrollbar-thumb {
     left: 50%;
     margin-left: -42.5%; } }
 @media only screen and (min-width: 768px) {
-  #input-holder,
   #editPopup {
     max-width: 500px;
     margin-left: -250px;
-    left: 50%; } }
+    left: 50%; }
+
+  #input-holder {
+    max-width: 500px; } }
 
 /*# sourceMappingURL=style.css.map */
