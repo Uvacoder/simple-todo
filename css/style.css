@@ -49,9 +49,9 @@ body::-webkit-scrollbar-thumb {
   top: 0;
   left: 0;
   color: #000;
-  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
   z-index: 10; }
-  #header #nav-icon {
+  #header .nav-icon {
     width: 40px;
     height: 50px;
     background-color: #fff;
@@ -59,44 +59,8 @@ body::-webkit-scrollbar-thumb {
     top: 5px;
     left: 10px;
     border: none; }
-  #header #nav-menu {
-    width: 300px;
-    height: 200px;
-    background-color: #fff;
-    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
-    -o-box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
-    -ms-box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
-    -moz-box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
-    -webkit-box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
-    position: absolute;
-    top: 50px;
-    left: 12.5px;
-    z-index: 11;
-    display: none; }
-    #header #nav-menu::before {
-      content: "";
-      position: absolute;
-      left: 5px;
-      bottom: 100%;
-      border-width: 10px;
-      border-style: solid;
-      border-color: transparent transparent #fff transparent; }
-    #header #nav-menu #profile-picture {
-      width: 100px;
-      height: 100px;
-      position: absolute;
-      margin-left: -50px;
-      top: 15px;
-      left: 50%;
-      border: 1px solid #2ecc71;
-      border-radius: 50% !important;
-      display: block; }
-    #header #nav-menu #username {
-      width: 100%;
-      display: block;
-      position: absolute;
-      top: 140px;
-      text-align: center; }
+    #header .nav-icon i {
+      font-size: 20px; }
   #header #logo {
     width: 50px;
     height: 60px;
@@ -115,21 +79,22 @@ body::-webkit-scrollbar-thumb {
     top: 5px;
     right: 10px;
     border: none; }
+    #header #options-btn i {
+      font-size: 20px;
+      line-height: 50px; }
   #header #option-holder {
     width: 100px;
     height: 50px;
     background-color: #fff;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
-    -o-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
-    -ms-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
-    -moz-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
-    -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+    box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.15);
+    -o-box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.15);
+    -ms-box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.15);
     position: absolute;
     top: 50px;
     right: 12.5px;
-    display: none;
-    grid-template-columns: 50px 50px;
-    grid-template-rows: 50px; }
+    display: none; }
     #header #option-holder::before {
       content: "";
       position: absolute;
@@ -137,39 +102,132 @@ body::-webkit-scrollbar-thumb {
       bottom: 100%;
       border-width: 10px;
       border-style: solid;
-      border-color: transparent transparent #fff transparent; }
-    #header #option-holder button {
-      z-index: 100;
+      border-color: transparent transparent #e74c3c transparent; }
+    #header #option-holder .options {
+      width: 50px;
+      height: 50px;
+      z-index: 50;
+      float: left;
       background: transparent;
       border: none;
       box-sizing: border-box; }
-      #header #option-holder button:first-of-type i {
-        vertical-align: middle;
-        color: #2ecc71; }
-      #header #option-holder button:nth-of-type(2) {
-        border-left: 1px dotted #ccc; }
-        #header #option-holder button:nth-of-type(2) i {
-          vertical-align: middle;
-          color: #e74c3c; }
+      #header #option-holder .options:first-of-type {
+        background-color: #2ecc71; }
+        #header #option-holder .options:first-of-type i {
+          line-height: 50px;
+          color: #fff; }
+      #header #option-holder .options:nth-of-type(2) {
+        background-color: #e74c3c; }
+        #header #option-holder .options:nth-of-type(2) i {
+          line-height: 50px;
+          color: #fff; }
 
-#input-holder {
-  width: 70%;
-  height: 40px;
+#nav-menu {
+  width: 350px;
+  height: 100vh;
+  background-color: #fff;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
   -o-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
   -ms-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
   -webkit-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
-  margin-left: -35%;
   position: absolute;
-  left: 50%;
+  top: 0px;
+  left: -400px;
+  z-index: 12;
+  padding: 50px 0px; }
+  #nav-menu #profile-picture {
+    width: 100px;
+    height: 100px;
+    margin: 20px auto;
+    border: 1px solid #2ecc71;
+    border-radius: 50% !important;
+    display: block; }
+  #nav-menu #username {
+    width: 100%;
+    display: block;
+    text-align: center; }
+  #nav-menu .nav-icon {
+    width: 40px;
+    height: 50px;
+    background-color: #fff;
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    border: none; }
+    #nav-menu .nav-icon i {
+      font-size: 20px; }
+  #nav-menu #task-count {
+    width: 50%;
+    height: 30px;
+    margin: 30px auto; }
+    #nav-menu #task-count #count-divider {
+      width: 1px;
+      height: 30px;
+      background-color: #ccc;
+      border-radius: 15px !important;
+      margin: 0px auto;
+      display: inline-block; }
+    #nav-menu #task-count .counters {
+      width: calc(50% - 0.5px);
+      height: 30px;
+      background-color: #fff;
+      float: left;
+      padding: 0px 15px;
+      border: none; }
+      #nav-menu #task-count .counters i {
+        color: #fff;
+        float: left;
+        text-align: left;
+        vertical-align: middle; }
+    #nav-menu #task-count #todo-counter {
+      float: left;
+      color: #e74c3c; }
+      #nav-menu #task-count #todo-counter i {
+        color: #e74c3c; }
+    #nav-menu #task-count #done-counter {
+      float: right;
+      color: #2ecc71; }
+      #nav-menu #task-count #done-counter i {
+        color: #2ecc71; }
+  #nav-menu #navig-menus {
+    width: 50%;
+    height: 200px;
+    margin: 50px auto 30px auto; }
+    #nav-menu #navig-menus .navig-menus {
+      width: 100%;
+      height: 40px;
+      background-color: #1abc9c;
+      margin: 10px 0px;
+      color: #fff;
+      border-radius: 20px !important;
+      border: none; }
+      #nav-menu #navig-menus .navig-menus i {
+        color: #fff;
+        display: inline;
+        margin-right: 5px; }
+  #nav-menu p {
+    width: 100%;
+    text-align: center; }
+    #nav-menu p i {
+      color: #e74c3c; }
+
+#input-holder {
+  width: 70%;
+  height: 40px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+  -o-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+  -ms-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+  margin: auto;
+  position: relative;
   top: 85px;
   border: none; }
   #input-holder #input {
     background-color: #fff;
     height: 40px;
     border: none;
-    font-size: 16px !important;
     box-shadow: none;
     -o-box-shadow: none;
     -ms-box-shadow: none;
@@ -180,7 +238,8 @@ body::-webkit-scrollbar-thumb {
       -o-box-shadow: none;
       -ms-box-shadow: none;
       -moz-box-shadow: none;
-      -webkit-box-shadow: none; }
+      -webkit-box-shadow: none;
+      font-size: 16px !important; }
   #input-holder #add-task {
     background-color: #2ecc71;
     width: 40px;
@@ -193,22 +252,23 @@ body::-webkit-scrollbar-thumb {
       vertical-align: middle; }
 
 #input-break {
-  width: 200px;
-  margin-top: 150px; }
+  margin: 125px auto 0px auto; }
+  #input-break hr {
+    width: 200px;
+    margin-bottom: 0;
+    border: 0.5px solid #eee; }
 
 #todo {
   width: 80%;
   height: auto;
-  margin-top: 25px;
+  margin-top: 30px;
   max-width: 625px; }
-  #todo #notif {
-    color: #858585; }
   #todo .task {
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
-    -o-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
-    -ms-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
-    -moz-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
-    -webkit-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+    -o-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+    -ms-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
     width: 100%;
     height: auto;
     min-height: 40px;
@@ -238,7 +298,7 @@ body::-webkit-scrollbar-thumb {
       float: right; }
       #todo .task .task-options i {
         color: #ccc;
-        vertical-align: middle; }
+        line-height: 20px; }
     #todo .task .delete-task {
       border-left: 1px dotted #ccc; }
       #todo .task .delete-task:hover i {
@@ -246,40 +306,16 @@ body::-webkit-scrollbar-thumb {
     #todo .task .edit-task:hover i {
       color: #e7a514; }
 
-.notif {
-  display: block; }
-
-#task-break {
-  margin-top: 25px;
-  margin-bottom: 25px;
-  display: none; }
-  #task-break hr {
-    width: 200px;
-    margin-bottom: 0;
-    border: 0.5px solid #2ecc71; }
-  #task-break #task-break-circle {
-    width: 40px;
-    height: 20px;
-    background-color: #2ecc71;
-    border-radius: 10px !important;
-    position: relative;
-    top: -10px; }
-    #task-break #task-break-circle i {
-      font-size: 15px;
-      color: #fff;
-      vertical-align: middle;
-      margin-top: -1px; }
-
 #done {
   width: 80%;
   height: auto;
   max-width: 625px; }
   #done .done-task {
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
-    -o-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
-    -ms-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
-    -moz-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
-    -webkit-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+    -o-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+    -ms-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
     width: 100%;
     height: auto;
     min-height: 40px;
@@ -307,7 +343,7 @@ body::-webkit-scrollbar-thumb {
       height: 20px;
       cursor: pointer;
       padding: 0 5px;
-      vertical-align: middle;
+      line-height: 20px;
       float: right; }
       #done .done-task .task-options i {
         color: #ccc;
@@ -319,7 +355,7 @@ body::-webkit-scrollbar-thumb {
     #done .done-task .edit-task:hover i {
       color: #e7a514; }
 
-#edit-bkg {
+#transparent-bkg {
   width: 100%;
   height: 100%;
   background-color: #000;
@@ -335,11 +371,11 @@ body::-webkit-scrollbar-thumb {
   width: 70%;
   height: 200px;
   background-color: #fff;
-  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
-  -o-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
-  -ms-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
-  -moz-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
-  -webkit-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+  -o-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+  -ms-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
   position: fixed;
   top: 50%;
   margin-top: -100px;
@@ -391,7 +427,10 @@ body::-webkit-scrollbar-thumb {
 @media only screen and (max-width: 425px) {
   #done .done-task .task-name,
   #todo .task .task-name {
-    width: 55%; } }
+    width: 55%; }
+
+  #nav-menu {
+    width: 100%; } }
 @media only screen and (max-width: 480px) {
   #done, #todo {
     width: 95%;

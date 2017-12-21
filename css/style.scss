@@ -80,52 +80,18 @@ body::-webkit-scrollbar-thumb {
   top: 0;
   left: 0;
   color: #000;
-  box-shadow: 1px 1px 20px rgba(0,0,0,0.15);
+  box-shadow: 1px 1px 10px rgba(0,0,0,0.15);
   z-index: 10;
   // Navigation icon
-  #nav-icon {
+  .nav-icon {
     @include size(40px, 50px);
     @include bkg(#fff);
     position: fixed;
     top: 5px;
     left: 10px;
     border: none;
-  }
-  // Navigation menu
-  #nav-menu {
-    @include size(300px,200px);
-    @include bkg(#fff);
-    @include box-shadow(1px 1px 20px rgba(0,0,0,0.15));
-    position: absolute;
-    top: 50px;
-    left: 12.5px;
-    z-index: 11;
-    display: none;
-    &::before {
-      content: "";
-      position: absolute;
-      left: 5px;
-      bottom: 100%;
-      border-width: 10px;
-      border-style: solid;
-      border-color: transparent transparent #fff transparent;
-    }
-    #profile-picture {
-      @include size(100px,100px);
-      position: absolute;
-      margin-left: -50px;
-      top: 15px;
-      left: 50%;
-      border: 1px solid #2ecc71;
-      border-radius: 50% !important;
-      display: block;
-    }
-    #username {
-      width: 100%;
-      display: block;
-      position: absolute;
-      top: 140px;
-      text-align: center;
+    i {
+      font-size: 20px;
     }
   }
   // Logo
@@ -148,18 +114,20 @@ body::-webkit-scrollbar-thumb {
     top: 5px;
     right: 10px;
     border: none;
+    i {
+      font-size: 20px;
+      line-height: 50px;
+    }
   }
   // Options tooltip
   #option-holder {
     @include size(100px,50px);
     @include bkg(#fff);
-    @include box-shadow(1px 1px 5px rgba(0,0,0,0.15));
+    @include box-shadow(1px 1px 15px rgba(0,0,0,0.15));
     position: absolute;
     top: 50px;
     right: 12.5px;
     display: none;
-    grid-template-columns: 50px 50px;
-    grid-template-rows: 50px;
     &::before {
       content: "";
       position: absolute;
@@ -167,39 +135,138 @@ body::-webkit-scrollbar-thumb {
       bottom: 100%;
       border-width: 10px;
       border-style: solid;
-      border-color: transparent transparent #fff transparent;
+      border-color: transparent transparent #e74c3c transparent;
     }
     // Buttons
-    button {
-      z-index: 100;
+    .options {
+      @include size(50px,50px);
+      z-index: 50;
+      float: left;
       background: transparent;
       border: none;
       box-sizing: border-box;
       // Sync
       &:first-of-type {
+        @include bkg(#2ecc71);
         i {
-          vertical-align: middle;
-          color: #2ecc71;
+          line-height: 50px;
+          color: #fff;
         }
       }
       // Delete all
       &:nth-of-type(2) {
-        border-left: 1px dotted #ccc;
+        @include bkg(#e74c3c);
         i {
-          vertical-align: middle;
-          color: #e74c3c;
+          line-height: 50px;
+          color: #fff;
         }
       }
+    }
+  }
+}
+// Navigation menu
+#nav-menu {
+  @include size(350px,100vh);
+  @include bkg(#fff);
+  @include box-shadow(1px 1px 10px rgba(0,0,0,0.15));
+  position: absolute;
+  top: 0px;
+  left: -400px;
+  z-index: 12;
+  padding: 50px 0px;
+  #profile-picture {
+    @include size(100px,100px);
+    margin: 20px auto;
+    border: 1px solid #2ecc71;
+    border-radius: 50% !important;
+    display: block;
+  }
+  #username {
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
+  // Navigation icon
+  .nav-icon {
+    @include size(40px, 50px);
+    @include bkg(#fff);
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    border: none;
+    i {
+      font-size: 20px;
+    }
+  }
+  #task-count {
+    @include size (50%, 30px);
+    margin: 30px auto;
+    #count-divider {
+      @include size (1px, 30px);
+      @include bkg(#ccc);
+      border-radius: 15px !important;
+      margin: 0px auto;
+      display: inline-block;
+    }
+    .counters {
+      @include size (calc(50% - 0.5px), 30px);
+      @include bkg(#fff);
+      float: left;
+      padding: 0px 15px;
+      border: none;
+      i {
+        color: #fff;
+        float: left;
+        text-align: left;
+        vertical-align: middle;
+      }
+    }
+    #todo-counter {
+      float: left;
+      color: #e74c3c;
+      i {
+        color: #e74c3c;
+      }
+    }
+    #done-counter {
+      float: right;
+      color: #2ecc71;
+      i {
+        color: #2ecc71;
+      }
+    }
+  }
+  #navig-menus {
+    @include size (50%, 200px);
+    margin: 50px auto 30px auto;
+    .navig-menus {
+      @include size (100%, 40px);
+      @include bkg(#1abc9c);
+      margin: 10px 0px;
+      color: #fff;
+      border-radius: 20px !important;
+      border: none;
+      i {
+        color: #fff;
+        display: inline;
+        margin-right: 5px;
+      }
+    }
+  }
+  p {
+    width: 100%;
+    text-align: center;
+    i {
+      color: #e74c3c;
     }
   }
 }
 // Input container
 #input-holder {
   @include size(70%,40px);
-  @include box-shadow(1px 1px 10px rgba(0,0,0,0.15));
-  margin-left: -35%;
-  position: absolute;
-  left: 50%;
+  @include box-shadow(1px 1px 5px rgba(0,0,0,0.15));
+  margin: auto;
+  position: relative;
   top: 85px;
   border: none;
   // Input
@@ -207,10 +274,10 @@ body::-webkit-scrollbar-thumb {
     @include bkg(#fff);
     height: 40px;
     border: none;
-    font-size: 16px !important;
     @include box-shadow(none);
     &:focus {
       @include box-shadow(none);
+      font-size: 16px !important;
     }
   }
   // Add button
@@ -228,21 +295,21 @@ body::-webkit-scrollbar-thumb {
 }
 // Line Break between input and tasks
 #input-break {
-  width: 200px;
-  margin-top: 150px;
+  margin: 125px auto 0px auto;
+  hr {
+    width: 200px;
+    margin-bottom: 0;
+    border: 0.5px solid #eee;
+  }
 }
 // Tasks to be done
 #todo {
   @include size(80%,auto);
-  margin-top: 25px;
+  margin-top: 30px;
   max-width: 625px;
-  // No tasks to do notification
-  #notif {
-    color: #858585;
-  }
   // Each uncompleted task
   .task {
-    @include box-shadow(1px 1px 10px rgba(0,0,0,0.15));
+    @include box-shadow(1px 1px 5px rgba(0,0,0,0.15));
     width: 100%;
     height: auto;
     min-height: 40px;
@@ -277,7 +344,7 @@ body::-webkit-scrollbar-thumb {
       float: right;
       i {
         color: #ccc;
-        vertical-align: middle;
+        line-height: 20px;
       }
     }
     .delete-task {
@@ -293,41 +360,13 @@ body::-webkit-scrollbar-thumb {
     }
   }
 }
-// Text notifications
-.notif {
-  display: block;
-}
-// Line Break between complete and incomplete tasks
-#task-break {
-  margin-top: 25px;
-  margin-bottom: 25px;
-  display: none;
-  hr {
-    width: 200px;
-    margin-bottom: 0;
-    border: 0.5px solid #2ecc71;
-  }
-  #task-break-circle {
-    @include size(40px,20px);
-    @include bkg(#2ecc71);
-    border-radius: 10px !important;
-    position: relative;
-    top: -10px;
-    i {
-      font-size: 15px;
-      color: #fff;
-      vertical-align: middle;
-      margin-top: -1px;
-    }
-  }
-}
 // Completed Tasks
 #done {
   @include size(80%,auto);
   max-width: 625px;
   // Each completed task
   .done-task {
-    @include box-shadow(1px 1px 10px rgba(0,0,0,0.15));
+    @include box-shadow(1px 1px 5px rgba(0,0,0,0.15));
     width: 100%;
     height: auto;
     min-height: 40px;
@@ -360,7 +399,7 @@ body::-webkit-scrollbar-thumb {
       height: 20px;
       cursor: pointer;
       padding: 0 5px;
-      vertical-align: middle;
+      line-height: 20px;
       float: right;
       i {
         color: #ccc;
@@ -380,8 +419,8 @@ body::-webkit-scrollbar-thumb {
     }
   }
 }
-// Edit text background
-#edit-bkg {
+// Transparent background
+#transparent-bkg {
   @include size(100%,100%);
   @include bkg(#000);
   opacity: 0.8;
@@ -395,7 +434,7 @@ body::-webkit-scrollbar-thumb {
 #editPopup {
   @include size(70%,200px);
   @include bkg(#fff);
-  @include box-shadow(1px 1px 10px rgba(0,0,0,0.15));
+  @include box-shadow(1px 1px 5px rgba(0,0,0,0.15));
   position: fixed;
   top: 50%;
   margin-top: -100px;
@@ -448,6 +487,9 @@ body::-webkit-scrollbar-thumb {
   #done .done-task .task-name,
   #todo .task .task-name {
     width: 55%;
+  }
+  #nav-menu {
+    width: 100%;
   }
 }
 // Small screens (< 480px)

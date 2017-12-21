@@ -16,6 +16,8 @@
       <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
       <!-- Material Icons -->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!-- Font Awesome -->
+      <script src="https://use.fontawesome.com/512a791d9f.js"></script>
       <!-- jQuery -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <!-- Bootstrap JavaScript -->
@@ -23,16 +25,13 @@
     </head>
   </head>
   <body>
+    <!-- Transparent background -->
+    <div id="transparent-bkg"></div>
     <!-- App title: Dolist -->
     <div id='header'>
-      <button id="nav-icon" class="pull-right">
+      <button class="nav-icon">
         <i class="material-icons">menu</i>
       </button>
-      <div id="nav-menu">
-        <img src="media/profile.png" id="profile-picture"/>
-        <p id="username">Dawwito</p>
-        <!-- <div id=""></div> -->
-      </div>
       <div class="center-block" id="logo">
         <img src="media/logo.svg" class="center-block" alt="Logo">
         <h4 class="text-center">Dolist</h4>
@@ -41,13 +40,46 @@
         <i class="material-icons">more_vert</i>
       </button>
       <div id="option-holder">
-        <button id="sync">
-          <i class="material-icons">sync</i>
+        <button class="options" id="complete-all">
+          <i class="material-icons">done_all</i>
         </button>
-        <button id="del-all" title="Remove Done Tasks">
+        <button class="options" id="del-all" title="Remove Done Tasks">
           <i class="material-icons">delete_sweep</i>
         </button>
       </div>
+    </div>
+    <!-- Navigation menu -->
+    <div id="nav-menu">
+      <button class="nav-icon">
+        <i class="material-icons">arrow_backward</i>
+      </button>
+      <img src="media/profile.png" id="profile-picture"/>
+      <p id="username">Dawit</p>
+      <div id="task-count">
+        <button class="counters" id="todo-counter">
+          <i class="material-icons">error</i>
+          <span>12</span>
+        </button>
+        <div id="count-divider"></div>
+        <button class="counters" id="done-counter">
+          <i class="material-icons">done_all</i>
+          <span>12</span>
+        </button>
+      </div>
+      <div id="navig-menus">
+        <button class="navig-menus" id="settings">
+          <i class="fa fa-sliders"></i> Settings
+        </button>
+        <button class="navig-menus" id="account">
+          <i class="fa fa-user-o"></i> Account
+        </button>
+        <button class="navig-menus" id="logout">
+          <i class="fa fa-sign-out"></i> Logout
+        </button>
+      </div>
+      <p>
+        Made with <i class="fa fa-heart"></i> by <a href="http://dawitcodes.com">Dawit</a>
+      </p>
     </div>
     <!-- Input -->
     <div id="input-holder" class="input-group">
@@ -58,22 +90,18 @@
         </button>
       </div>
     </div>
-    <hr id="input-break">
+    <div id="input-break">
+      <hr>
+    </div>
+    <!-- <hr id="input-break"> -->
     <!-- To Do Tasks -->
     <div id="todo" class="center-block">
-      <!-- <p id="notif" class="text-center">You have no tasks to complete.</p> -->
       <!-- <li class="task">
         <span class="check-task"></span>
         <span class="task-name">Task Onlknml;km ;hlkfeorkfmfo ireokjle vksjndfjvndkfjndfkjvnde</span>
         <span class="delete-task task-options"><i class="material-icons">delete</i></span>
         <span class="edit-task task-options"><i class="material-icons">edit</i></span>
       </li> -->
-    </div>
-    <div id="task-break" class="center-block">
-      <hr>
-      <div id="task-break-circle" class="text-center center-block">
-        <i class="material-icons">done</i>
-      </div>
     </div>
     <!-- Done Tasks -->
     <div id="done" class="center-block">
@@ -87,7 +115,6 @@
       </li> -->
     </div>
     <!-- Edit Popup -->
-    <div id="edit-bkg"></div>
     <div id="editPopup">
       <i class="material-icons closePopup">close</i>
       <input type="text" id="edit-input">
