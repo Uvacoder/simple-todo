@@ -273,11 +273,13 @@ body::-webkit-scrollbar-thumb {
   // Input
   #input {
     @include bkg(#fff);
+    @include box-shadow(none);
     height: 40px;
     border: none;
-    @include box-shadow(none);
     &:focus {
+      @include bkg(red);
       @include box-shadow(none);
+
     }
   }
   // Add button
