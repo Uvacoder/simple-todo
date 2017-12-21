@@ -5,23 +5,23 @@ $(document).ready(function() {
   var editIcon = '<i class="material-icons">edit</i>';
 
   // Ajax loader
-  // $.ajax({
-  //   url:"js/data.json",
-  //   type:'GET',
-  //   dataType:'json',
-  //   success: function(tasks) {
-  //     $.each(tasks, function(i, item) {
-  //       addTask(item.task);
-  //     })
-  //   },
-  //   error: function() {
-  //     alert('Error Loading Tasks...');
-  //   }
-  // });
+  $.ajax({
+    url:"js/data.json",
+    type:'GET',
+    dataType:'json',
+    success: function(tasks) {
+      $.each(tasks, function(i, item) {
+        addTask(item.task);
+      })
+    },
+    error: function() {
+      alert('Error Loading Tasks...');
+    }
+  });
 
   // Close Edit Popup
   function closePopup() {
-    $('#nav-menu').css({left:'-400px'});
+    $('#nav-menu').css({left:'-450px'});
     $('#transparent-bkg').fadeOut('fast');
     $('#editPopup').slideUp('fast');
     $('#edit-input').val('');
@@ -260,11 +260,11 @@ $(document).ready(function() {
 
   // Display Navigation
   $('.nav-icon').click(function() {
-    if ($('#nav-menu').css("left") == "-400px") {
+    if ($('#nav-menu').css("left") == "-450px") {
       $('#nav-menu').css({left:'0px'});
       $('#transparent-bkg').fadeIn('fast');
     } else {
-      $('#nav-menu').css({left:'-400px'});
+      $('#nav-menu').css({left:'-450px'});
       $('#transparent-bkg').fadeOut('fast');
     }
   });
