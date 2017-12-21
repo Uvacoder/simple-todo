@@ -196,6 +196,7 @@ body::-webkit-scrollbar-thumb {
     border: none;
     i {
       font-size: 20px;
+      line-height: 50px;
     }
   }
   #task-count {
@@ -277,7 +278,6 @@ body::-webkit-scrollbar-thumb {
     @include box-shadow(none);
     &:focus {
       @include box-shadow(none);
-      font-size: 16px !important;
     }
   }
   // Add button

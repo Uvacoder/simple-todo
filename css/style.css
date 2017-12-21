@@ -156,7 +156,8 @@ body::-webkit-scrollbar-thumb {
     left: 10px;
     border: none; }
     #nav-menu .nav-icon i {
-      font-size: 20px; }
+      font-size: 20px;
+      line-height: 50px; }
   #nav-menu #task-count {
     width: 50%;
     height: 30px;
@@ -238,8 +239,7 @@ body::-webkit-scrollbar-thumb {
       -o-box-shadow: none;
       -ms-box-shadow: none;
       -moz-box-shadow: none;
-      -webkit-box-shadow: none;
-      font-size: 16px !important; }
+      -webkit-box-shadow: none; }
   #input-holder #add-task {
     background-color: #2ecc71;
     width: 40px;
