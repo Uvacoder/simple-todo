@@ -96,14 +96,32 @@ body::-webkit-scrollbar-thumb {
   }
   // Logo
   #logo {
-    @include size(50px, 60px);
-    padding-top: 5px;
-    img {
-      @include size(25px, 25px);
+    width: 110px;
+    height: 45px;
+    margin: 7.5px auto;
+    .logo-content {
+      display: inline-block;
+      height: 45px;
+      float: left;
+      line-height: 45px;
     }
-    h4 {
-      position: relative;
-      top: -5px;
+    #img {
+      width: 45px;
+      height: 45px;
+      padding: 7.5px;
+    }
+    #logo-divider {
+      width: 1px;
+      height: 20px;
+      margin-top: 12.5px;
+      background: #1abc9c;
+    }
+    #app-name {
+      width: 64px;
+      height: 45px;
+      padding: 0px 7.5px;
+      color: #1abc9c;
+      margin-top: 0px;
     }
   }
   // Options opener
@@ -294,15 +312,6 @@ body::-webkit-scrollbar-thumb {
     }
   }
 }
-// Line Break between input and tasks
-#input-break {
-  margin: 125px auto 0px auto;
-  hr {
-    width: 200px;
-    margin-bottom: 0;
-    border: 0.5px solid #eee;
-  }
-}
 // Tasks to be done
 #todo {
   @include size(80%,auto);
@@ -481,6 +490,58 @@ body::-webkit-scrollbar-thumb {
   margin-left: -25px;
   left: 50%;
   border: none;
+}
+// Notifications
+.notif {
+  width: 100%;
+  text-align: center;
+  color: #ccc;
+  margin: 25px 0px;
+}
+#done-notif {
+  display: none;
+}
+// Line Breaks
+.break {
+  .task-status {
+    @include size(20px,20px);
+    border-radius: 50% !important;
+    margin: 0px auto;
+    i {
+      color: #fff;
+      width: 100%;
+      text-align: center;
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
+  hr {
+    width: 200px;
+    margin: -10px auto 0px auto;
+    border: 0.5px solid #eee;
+  }
+}
+// Between input and tasks
+#input-break {
+  margin: 125px auto 0px auto;
+  .task-status {
+    @include bkg(#e74c3c);
+    display: none;
+  }
+  hr {
+    border: 0.5px solid #eee;
+  }
+}
+// Between todo and done tasks
+#task-break {
+  margin: 30px auto 40px auto;
+  display: none;
+  .task-status {
+    @include bkg(#2ecc71);
+  }
+  hr {
+    border: 0.5px solid #2ecc71;
+  }
 }
 // Small screens (< 425px)
 @media only screen and (max-width: 425px) {

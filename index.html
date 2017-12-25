@@ -32,18 +32,19 @@
       <button class="nav-icon">
         <i class="material-icons">menu</i>
       </button>
-      <div class="center-block" id="logo">
-        <img src="media/logo.svg" class="center-block" alt="Logo">
-        <h4 class="text-center">Dolist</h4>
+      <div id="logo">
+        <img class='logo-content' id="img" src="media/logo.svg" alt='App Logo'/>
+        <span class='logo-content' id='logo-divider'></span>
+        <h4 class='logo-content' id="app-name">Dolist</h4>
       </div>
       <button id="options-btn" class="pull-right">
         <i class="material-icons">more_vert</i>
       </button>
       <div id="option-holder">
-        <button class="options" id="complete-all">
+        <button class="options" id="complete-all" title="Doesn't do anything">
           <i class="material-icons">done_all</i>
         </button>
-        <button class="options" id="del-all" title="Remove Done Tasks">
+        <button class="options" id="del-all" title="Remove All Tasks">
           <i class="material-icons">delete_sweep</i>
         </button>
       </div>
@@ -90,11 +91,16 @@
         </button>
       </div>
     </div>
-    <div id="input-break">
+    <div id="input-break" class="break">
+      <div class="task-status">
+        <i class="material-icons">error</i>
+      </div>
       <hr>
     </div>
-    <!-- <hr id="input-break"> -->
     <!-- To Do Tasks -->
+    <p id="todo-notif" class="notif">
+      You have no tasks to complete.
+    </p>
     <div id="todo" class="center-block">
       <!-- <li class="task">
         <span class="check-task"></span>
@@ -103,11 +109,17 @@
         <span class="edit-task task-options"><i class="material-icons">edit</i></span>
       </li> -->
     </div>
+    <div id="task-break" class="break">
+      <div class="task-status">
+        <i class="material-icons">done_all</i>
+      </div>
+      <hr>
+    </div>
     <!-- Done Tasks -->
+    <p id="done-notif" class="notif">
+      You have no completed tasks.
+    </p>
     <div id="done" class="center-block">
-      <!-- <p id="no-done-notif" class="notif text-center">
-        You have no completed tasks.
-      </p> -->
       <!-- <li class="done-task">
         <span class="checked-task pull-left"><i class="material-icons">done</i></span>
         <span class="task-name">Task One</span>

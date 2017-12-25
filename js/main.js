@@ -15,7 +15,8 @@ $(document).ready(function() {
       })
     },
     error: function() {
-      alert('Error Loading Tasks...');
+      // alert('Error Loading Tasks...');
+      // console.log("Error");
     }
   });
 
@@ -121,6 +122,37 @@ $(document).ready(function() {
      // Clear input
      $("#input").val('');
 
+     // Input Break styling
+     if ($('.task').length > 0) {
+       $('#input-break .task-status').css('display','block');
+       $('#input-break hr').css('border-color','#e74c3c');
+     } else {
+       $('#input-break .task-status').css('display','none');
+       $('#input-break hr').css('border-color','#eee');
+     }
+
+     // Task Break styling
+     if ($('.done-task').length > 0) {
+       $('#task-break').css('display','block');
+     } else {
+       $('#task-break').css('display','none');
+     }
+
+     // Notifications
+     if ($('.task').length == 0 && $('.done-task').length > 0) {
+       $('#todo-notif').css('display','block');
+       $('#done-notif').css('display','none');
+     } else if ($('.task').length > 0 && $('.done-task').length == 0) {
+       $('#todo-notif').css('display','none');
+       $('#done-notif').css('display','block');
+     } else if ($('.task').length > 0 && $('.done-task').length > 0) {
+       $('#todo-notif').css('display','none');
+       $('#done-notif').css('display','none');
+     } else {
+       $('#todo-notif').css('display','block');
+       $('#done-notif').css('display','none');
+     }
+
    }
 
    // completes a task
@@ -176,7 +208,36 @@ $(document).ready(function() {
      var $doneParent = $doneItem.parent();
      $doneItem.remove();
 
-     console.log($('.done-task').length);
+     // Input Break styling
+     if ($('.task').length > 0) {
+       $('#input-break .task-status').css('display','block');
+       $('#input-break hr').css('border-color','#e74c3c');
+     } else {
+       $('#input-break .task-status').css('display','none');
+       $('#input-break hr').css('border-color','#eee');
+     }
+
+     // Task Break styling
+     if ($('.done-task').length > 0) {
+       $('#task-break').css('display','block');
+     } else {
+       $('#task-break').css('display','none');
+     }
+
+     // Notifications
+     if ($('.task').length == 0 && $('.done-task').length > 0) {
+       $('#todo-notif').css('display','block');
+       $('#done-notif').css('display','none');
+     } else if ($('.task').length > 0 && $('.done-task').length == 0) {
+       $('#todo-notif').css('display','none');
+       $('#done-notif').css('display','block');
+     } else if ($('.task').length > 0 && $('.done-task').length > 0) {
+       $('#todo-notif').css('display','none');
+       $('#done-notif').css('display','none');
+     } else {
+       $('#todo-notif').css('display','block');
+       $('#done-notif').css('display','none');
+     }
 
    }
 
@@ -233,12 +294,74 @@ $(document).ready(function() {
      var $doneParent = $doneItem.parent();
      $doneItem.remove();
 
+     // Input Break styling
+     if ($('.task').length > 0) {
+       $('#input-break .task-status').css('display','block');
+       $('#input-break hr').css('border-color','#e74c3c');
+     } else {
+       $('#input-break .task-status').css('display','none');
+       $('#input-break hr').css('border-color','#eee');
+     }
+
+     // Task Break styling
+     if ($('.done-task').length > 0) {
+       $('#task-break').css('display','block');
+     } else {
+       $('#task-break').css('display','none');
+     }
+
+     // Notifications
+     if ($('.task').length == 0 && $('.done-task').length > 0) {
+       $('#todo-notif').css('display','block');
+       $('#done-notif').css('display','none');
+     } else if ($('.task').length > 0 && $('.done-task').length == 0) {
+       $('#todo-notif').css('display','none');
+       $('#done-notif').css('display','block');
+     } else if ($('.task').length > 0 && $('.done-task').length > 0) {
+       $('#todo-notif').css('display','none');
+       $('#done-notif').css('display','none');
+     } else {
+       $('#todo-notif').css('display','block');
+       $('#done-notif').css('display','none');
+     }
+
    }
 
    // Removes a task from both lists
   function removeTask() {
       var $item = $(this).parent();
       $item.remove();
+
+      // Input Break styling
+      if ($('.task').length > 0) {
+        $('#input-break .task-status').css('display','block');
+        $('#input-break hr').css('border-color','#e74c3c');
+      } else {
+        $('#input-break .task-status').css('display','none');
+        $('#input-break hr').css('border-color','#eee');
+      }
+
+      // Task Break styling
+      if ($('.done-task').length > 0) {
+        $('#task-break').css('display','block');
+      } else {
+        $('#task-break').css('display','none');
+      }
+
+      // Notifications
+      if ($('.task').length == 0 && $('.done-task').length > 0) {
+        $('#todo-notif').css('display','block');
+        $('#done-notif').css('display','none');
+      } else if ($('.task').length > 0 && $('.done-task').length == 0) {
+        $('#todo-notif').css('display','none');
+        $('#done-notif').css('display','block');
+      } else if ($('.task').length > 0 && $('.done-task').length > 0) {
+        $('#todo-notif').css('display','none');
+        $('#done-notif').css('display','none');
+      } else {
+        $('#todo-notif').css('display','block');
+        $('#done-notif').css('display','none');
+      }
   }
 
   // Removes All Tasks
@@ -247,6 +370,37 @@ $(document).ready(function() {
       $("#done").empty();
       $("#todo").empty();
       $('#option-holder').css({display:"none"});
+
+      // Input Break styling
+      if ($('.task').length > 0) {
+        $('#input-break .task-status').css('display','block');
+        $('#input-break hr').css('border-color','#e74c3c');
+      } else {
+        $('#input-break .task-status').css('display','none');
+        $('#input-break hr').css('border-color','#eee');
+      }
+
+      // Task Break styling
+      if ($('.done-task').length > 0) {
+        $('#task-break').css('display','block');
+      } else {
+        $('#task-break').css('display','none');
+      }
+
+      // Notifications
+      if ($('.task').length == 0 && $('.done-task').length > 0) {
+        $('#todo-notif').css('display','block');
+        $('#done-notif').css('display','none');
+      } else if ($('.task').length > 0 && $('.done-task').length == 0) {
+        $('#todo-notif').css('display','none');
+        $('#done-notif').css('display','block');
+      } else if ($('.task').length > 0 && $('.done-task').length > 0) {
+        $('#todo-notif').css('display','none');
+        $('#done-notif').css('display','none');
+      } else {
+        $('#todo-notif').css('display','block');
+        $('#done-notif').css('display','none');
+      }
   });
 
   // Display options: Delete all and Sync
