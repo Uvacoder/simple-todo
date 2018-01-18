@@ -72,6 +72,9 @@ body::-webkit-scrollbar-thumb {
   background-color: #ccc;
   border-radius: 5px;
 }
+body {
+  background-color: #ecf0f1 !important;
+}
 // Header: Logo and options
 #header {
   @include size(100%, 60px);
@@ -321,6 +324,7 @@ body::-webkit-scrollbar-thumb {
   .task {
     @include box-shadow(1px 1px 5px rgba(0,0,0,0.15));
     width: 100%;
+    background: #fff;
     height: auto;
     min-height: 40px;
     margin-bottom: 20px;
@@ -379,6 +383,7 @@ body::-webkit-scrollbar-thumb {
     @include box-shadow(1px 1px 5px rgba(0,0,0,0.15));
     width: 100%;
     height: auto;
+    background: #fff;
     min-height: 40px;
     margin-bottom: 20px;
     padding: 10px 5px 10px 10px;
