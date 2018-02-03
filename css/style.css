@@ -41,8 +41,9 @@ body::-webkit-scrollbar-thumb {
   background-color: #ccc;
   border-radius: 5px; }
 
-body {
-  background-color: #ecf0f1 !important; }
+body, html {
+  background-color: #ecf0f1 !important;
+  min-height: 100%; }
 
 #header {
   width: 100%;
@@ -100,7 +101,7 @@ body {
       font-size: 20px;
       line-height: 50px; }
   #header #option-holder {
-    width: 100px;
+    width: 50px;
     height: 50px;
     background-color: #fff;
     box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.15);
@@ -111,7 +112,8 @@ body {
     position: absolute;
     top: 50px;
     right: 12.5px;
-    display: none; }
+    display: none;
+    border-radius: 2px !important; }
     #header #option-holder::before {
       content: "";
       position: absolute;
@@ -124,18 +126,16 @@ body {
       width: 50px;
       height: 50px;
       z-index: 50;
+      cursor: pointer;
       float: left;
+      text-align: center;
       background: transparent;
       border: none;
+      border-radius: 2px !important;
       box-sizing: border-box; }
       #header #option-holder .options:first-of-type {
-        background-color: #2ecc71; }
-        #header #option-holder .options:first-of-type i {
-          line-height: 50px;
-          color: #fff; }
-      #header #option-holder .options:nth-of-type(2) {
         background-color: #e74c3c; }
-        #header #option-holder .options:nth-of-type(2) i {
+        #header #option-holder .options:first-of-type i {
           line-height: 50px;
           color: #fff; }
 
@@ -241,6 +241,7 @@ body {
   margin: auto;
   position: relative;
   top: 85px;
+  border-radius: 2px !important;
   border: none; }
   #input-holder #input {
     background-color: #fff;
@@ -263,11 +264,10 @@ body {
     width: 40px;
     height: 40px;
     border: none;
-    color: #fff; }
-    #input-holder #add-task i {
-      width: 100%;
-      text-align: center;
-      vertical-align: middle; }
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    font-size: 30px; }
 
 #todo {
   width: 80%;
@@ -281,6 +281,7 @@ body {
     -moz-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
     -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
     width: 100%;
+    border-radius: 2px !important;
     background: #fff;
     height: auto;
     min-height: 40px;
@@ -294,7 +295,8 @@ body {
       cursor: pointer;
       float: left;
       text-align: center;
-      margin-right: 10px; }
+      margin-right: 10px;
+      border-radius: 2px !important; }
       #todo .task .check-task i {
         font-size: 18px;
         color: #ccc; }
@@ -333,6 +335,7 @@ body {
     background: #fff;
     min-height: 40px;
     margin-bottom: 20px;
+    border-radius: 2px !important;
     padding: 10px 5px 10px 10px;
     border-left: 5px solid #2ecc71; }
     #done .done-task .checked-task {
@@ -450,13 +453,13 @@ body {
   width: 20px;
   height: 20px;
   border-radius: 50% !important;
-  margin: 0px auto; }
+  margin: 0px auto;
+  text-align: center; }
   .break .task-status i {
     color: #fff;
-    width: 100%;
-    text-align: center;
     font-size: 16px;
-    line-height: 20px; }
+    line-height: 20px;
+    border-radius: 50% !important; }
 .break hr {
   width: 200px;
   margin: -10px auto 0px auto;

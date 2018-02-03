@@ -18,6 +18,8 @@
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!-- Font Awesome -->
       <script src="https://use.fontawesome.com/512a791d9f.js"></script>
+      <!-- Ionicons -->
+      <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
       <!-- jQuery -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <!-- Bootstrap JavaScript -->
@@ -41,12 +43,9 @@
         <i class="material-icons">more_vert</i>
       </button>
       <div id="option-holder">
-        <button class="options" id="complete-all" title="Doesn't do anything">
-          <i class="material-icons">done_all</i>
-        </button>
-        <button class="options" id="del-all" title="Remove All Tasks">
+        <div class="options" id="del-all" title="Remove All Tasks">
           <i class="material-icons">delete_sweep</i>
-        </button>
+        </div>
       </div>
     </div>
     <!-- Navigation menu -->
@@ -87,7 +86,7 @@
       <input id="input" type="text" class="form-control" placeholder="Enter Task">
       <div class="input-group-btn">
         <button id="add-task" class="text-center">
-          <i class="material-icons">add</i>
+          <i class="ion-ios-plus-empty"></i>
         </button>
       </div>
     </div>
@@ -104,7 +103,7 @@
     <div id="todo" class="center-block">
       <!-- <li class="task">
         <span class="check-task"></span>
-        <span class="task-name">Task Onlknml;km ;hlkfeorkfmfo ireokjle vksjndfjvndkfjndfkjvnde</span>
+        <span class="task-name">Task</span>
         <span class="delete-task task-options"><i class="material-icons">delete</i></span>
         <span class="edit-task task-options"><i class="material-icons">edit</i></span>
       </li> -->
@@ -128,7 +127,7 @@
     </div>
     <!-- Edit Popup -->
     <div id="editPopup">
-      <i class="material-icons closePopup">close</i>
+      <i class="ion-ios-close-outline closePopup"></i>
       <input type="text" id="edit-input">
       <button id="save">Save</button>
     </div>

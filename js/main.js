@@ -8,7 +8,7 @@ $(document).ready(function() {
   $.ajax({
     url:"js/data.json",
     type:'GET',
-    dataType:'json',
+    dataType:'jsonp',
     success: function(tasks) {
       $.each(tasks, function(i, item) {
         addTask(item.task);
@@ -16,7 +16,7 @@ $(document).ready(function() {
     },
     error: function() {
       // alert('Error Loading Tasks...');
-      // console.log("Error");
+      console.log("Error");
     }
   });
 
@@ -33,6 +33,7 @@ $(document).ready(function() {
   // Edit task function
   function editTask() {
     var $toBeEdited = $(this).prev().prev();
+    var $toBeEditedText = $toBeEdited.text();
     $('#transparent-bkg').fadeIn('fast');
     $('#editPopup').slideDown('fast');
     $('#edit-input').focus();
@@ -41,6 +42,16 @@ $(document).ready(function() {
       var $editedText = $('#edit-input').val();
       if ($editedText) {
         $toBeEdited.text($editedText);
+        //  Fetches saved data
+        var tasks = JSON.parse(localStorage.getItem('tasks'));
+        //  Edits task from saved tasks
+        for (let i = 0; i < tasks.length; i++) {
+          if (tasks[i].task_name == $toBeEditedText) {
+            tasks[i].task_name = $editedText
+          }
+        }
+        //  Re-sets data to localStorage
+        localStorage.setItem('tasks',JSON.stringify(tasks));
         $('#transparent-bkg').fadeOut('fast');
         $('#editPopup').slideUp('fast');
       } else {
@@ -119,6 +130,29 @@ $(document).ready(function() {
 
      // Append task to todo list
      $todoList.append($task);
+
+    //  Creates a task object
+    const task = {
+      task_name: item,
+      completion: false
+    }
+
+    if (localStorage.getItem('tasks') === null) {
+      // Creates new array
+      var tasks = [];
+      // Adds task data to array
+      tasks.push(task);
+      //  Re-sets data to localStorage
+      localStorage.setItem('tasks',JSON.stringify(tasks));
+    } else {
+      // Fetches array of saved tasks
+      var tasks = JSON.parse(localStorage.getItem('tasks'));
+      // Adds new task to array
+      tasks.push(task);
+      //  Re-sets data to localStorage
+      localStorage.setItem('tasks',JSON.stringify(tasks));
+    }
+
      // Clear input
      $("#input").val('');
 
@@ -152,7 +186,7 @@ $(document).ready(function() {
        $('#todo-notif').css('display','block');
        $('#done-notif').css('display','none');
      }
-
+     
    }
 
    // completes a task
@@ -202,6 +236,18 @@ $(document).ready(function() {
 
      // Append task to the done list
      $doneList.prepend($doneTask);
+
+     //  Fetches saved data
+     var tasks = JSON.parse(localStorage.getItem('tasks'));
+
+    //  Updates completion status
+     for (let i = 0; i < tasks.length; i++) {
+       if (tasks[i].task_name == $taskTitle) {
+         tasks[i].completion = true;
+       }
+     }
+     //  Re-sets data to localStorage
+     localStorage.setItem('tasks',JSON.stringify(tasks));
 
      // Remove original element
      var $doneItem = $(this).parent();
@@ -289,6 +335,17 @@ $(document).ready(function() {
      // Append task to the done list
      $todoList.prepend($todoTask);
 
+     //  Fetches saved data
+     var tasks = JSON.parse(localStorage.getItem('tasks'));
+     // Updates the completion status
+     for (let i = 0; i < tasks.length; i++) {
+       if (tasks[i].task_name == $taskTitle) {
+         tasks[i].completion = false;
+       }
+     }
+     //  Re-sets data to localStorage
+     localStorage.setItem('tasks',JSON.stringify(tasks));
+
      // Remove original element
      var $doneItem = $(this).parent();
      var $doneParent = $doneItem.parent();
@@ -330,7 +387,20 @@ $(document).ready(function() {
    // Removes a task from both lists
   function removeTask() {
       var $item = $(this).parent();
+      var $taskTitle = $(this).prev().text();      
       $item.remove();
+
+      // Fetches saved data
+      var tasks = JSON.parse(localStorage.getItem('tasks'));
+
+      // Delete an item from saved data
+      for (let i = 0; i < tasks.length; i++) {
+        if (tasks[i].task_name == $taskTitle) {
+          tasks.splice(i,1)
+        }
+      }
+      // Re-set data to storage
+      localStorage.setItem('tasks',JSON.stringify(tasks));
 
       // Input Break styling
       if ($('.task').length > 0) {
@@ -370,6 +440,11 @@ $(document).ready(function() {
       $("#done").empty();
       $("#todo").empty();
       $('#option-holder').css({display:"none"});
+
+      // Fetchs saved data and empties it
+      var tasks = JSON.parse(localStorage.getItem('tasks'));
+      tasks = [];
+      localStorage.setItem('tasks',JSON.stringify(tasks));
 
       // Input Break styling
       if ($('.task').length > 0) {

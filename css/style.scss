@@ -72,8 +72,9 @@ body::-webkit-scrollbar-thumb {
   background-color: #ccc;
   border-radius: 5px;
 }
-body {
+body, html {
   background-color: #ecf0f1 !important;
+  min-height: 100%;
 }
 // Header: Logo and options
 #header {
@@ -142,13 +143,14 @@ body {
   }
   // Options tooltip
   #option-holder {
-    @include size(100px,50px);
+    @include size(50px,50px);
     @include bkg(#fff);
     @include box-shadow(1px 1px 15px rgba(0,0,0,0.15));
     position: absolute;
     top: 50px;
     right: 12.5px;
     display: none;
+    border-radius: 2px !important;
     &::before {
       content: "";
       position: absolute;
@@ -162,20 +164,15 @@ body {
     .options {
       @include size(50px,50px);
       z-index: 50;
+      cursor: pointer;
       float: left;
+      text-align: center;
       background: transparent;
       border: none;
+      border-radius: 2px !important;
       box-sizing: border-box;
-      // Sync
-      &:first-of-type {
-        @include bkg(#2ecc71);
-        i {
-          line-height: 50px;
-          color: #fff;
-        }
-      }
       // Delete all
-      &:nth-of-type(2) {
+      &:first-of-type {
         @include bkg(#e74c3c);
         i {
           line-height: 50px;
@@ -290,7 +287,9 @@ body {
   margin: auto;
   position: relative;
   top: 85px;
+  border-radius: 2px !important;
   border: none;
+  // overflow: hidden;
   // Input
   #input {
     @include bkg(#fff);
@@ -308,11 +307,9 @@ body {
     @include size(40px,40px);
     border: none;
     color: #fff;
-    i {
-      width: 100%;
-      text-align: center;
-      vertical-align: middle;
-    }
+    text-align: center;
+    line-height: 40px;
+    font-size: 30px;
   }
 }
 // Tasks to be done
@@ -324,6 +321,7 @@ body {
   .task {
     @include box-shadow(1px 1px 5px rgba(0,0,0,0.15));
     width: 100%;
+    border-radius: 2px !important;
     background: #fff;
     height: auto;
     min-height: 40px;
@@ -338,6 +336,7 @@ body {
       float: left;
       text-align: center;
       margin-right: 10px;
+      border-radius: 2px !important;
       i {
         font-size: 18px;
         color: #ccc;
@@ -386,6 +385,7 @@ body {
     background: #fff;
     min-height: 40px;
     margin-bottom: 20px;
+    border-radius: 2px !important;
     padding: 10px 5px 10px 10px;
     border-left: 5px solid #2ecc71;
     // Checked Checkbox
@@ -512,12 +512,12 @@ body {
     @include size(20px,20px);
     border-radius: 50% !important;
     margin: 0px auto;
+    text-align: center;
     i {
       color: #fff;
-      width: 100%;
-      text-align: center;
       font-size: 16px;
       line-height: 20px;
+      border-radius: 50% !important;
     }
   }
   hr {
