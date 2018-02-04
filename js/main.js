@@ -8,7 +8,7 @@ $(document).ready(function() {
   $.ajax({
     url:"js/data.json",
     type:'GET',
-    dataType:'jsonp',
+    dataType:'json',
     success: function(tasks) {
       $.each(tasks, function(i, item) {
         addTask(item.task);
